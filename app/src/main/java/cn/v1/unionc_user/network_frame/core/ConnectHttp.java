@@ -1,6 +1,6 @@
-package cn.v1.nuionc_user.network_frame.core;
+package cn.v1.unionc_user.network_frame.core;
 
-import cn.v1.nuionc_user.network_frame.UnionAPI;
+import cn.v1.unionc_user.network_frame.UnionAPI;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

@@ -1,4 +1,4 @@
-package cn.v1.nuionc_user;
+package cn.v1.unionc_user;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

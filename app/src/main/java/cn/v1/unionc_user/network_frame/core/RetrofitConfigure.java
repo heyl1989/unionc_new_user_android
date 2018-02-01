@@ -1,4 +1,4 @@
-package cn.v1.nuionc_user.network_frame.core;
+package cn.v1.unionc_user.network_frame.core;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
