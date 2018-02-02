@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/library/IMKit/IMKit.iml" filepath="$PROJECT_DIR$/library/IMKit/IMKit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/IMLib/IMLib.iml" filepath="$PROJECT_DIR$/library/IMLib/IMLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/unionc_new_user_android.iml" filepath="$PROJECT_DIR$/unionc_new_user_android.iml" />
     </modules>
   </component>
