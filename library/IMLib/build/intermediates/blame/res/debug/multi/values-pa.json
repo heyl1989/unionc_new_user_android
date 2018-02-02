@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa\\values-pa.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 100,
+                    "endOffset": 151
+                },
+                "from": {
+                    "file": "C:\\Users\\qy\\.android\\build-cache\\ca6515e7d4378475932e7daf434d47967d5ac76c\\output\\res\\values-pa\\values-pa.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 100,
+                        "endOffset": 151
+                    }
+                }
+            }
+        ]
+    }
+]
