@@ -1,4 +1,4 @@
-package cn.v1.unionc_user.Data;
+package cn.v1.unionc_user.data;
 
 /**
  * Created by qy on 2018/2/1.

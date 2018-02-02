@@ -1,8 +1,5 @@
 package cn.v1.unionc_user.network_frame;
 
-import java.util.List;
-
-import cn.v1.unionc_user.network_frame.core.ConnectHttp;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 
@@ -19,6 +16,6 @@ public class UnionAPIPackage {
      * @return
      */
     public static Observable<ResponseBody> getcontributorsAvator() {
-        return ConnectHttp.getPictureAPI().getcontributorsAvator();
+        return ConnectHttp.getUnionAPI().getcontributorsAvator();
     }
 }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import cn.v1.unionc_user.Data.Common;
+import cn.v1.unionc_user.data.Common;
 
 /**
  * Created by qy on 2018/2/1.

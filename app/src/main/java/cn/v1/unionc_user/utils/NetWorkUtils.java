@@ -1,4 +1,4 @@
-package cn.v1.unionc_user.network_frame.core;
+package cn.v1.unionc_user.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

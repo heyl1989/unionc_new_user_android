@@ -3,16 +3,20 @@ package cn.v1.unionc_user;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import java.io.File;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import cn.v1.unionc_user.Data.SPUtil;
-import cn.v1.unionc_user.network_frame.core.NetWorkUtils;
-import static cn.v1.unionc_user.Data.Common.APP_CACAHE_DIRNAME;
-import static cn.v1.unionc_user.Data.Common.QM_SET;
+import cn.v1.unionc_user.data.SPUtil;
+import cn.v1.unionc_user.utils.NetWorkUtils;
+import static cn.v1.unionc_user.data.Common.APP_CACAHE_DIRNAME;
+import static cn.v1.unionc_user.data.Common.QM_SET;
 
 public class QMWebViewActivity extends BaseActivity {
 
@@ -81,7 +85,8 @@ public class QMWebViewActivity extends BaseActivity {
         webSettings.setDatabaseEnabled(true);   //开启 database storage API 功能
         webSettings.setAppCacheEnabled(true);//开启 Application Caches 功能
         if(!SPUtil.contains(context,QM_SET)){
-            String cacheDirPath = getFilesDir().getAbsolutePath() + APP_CACAHE_DIRNAME;
+            String cacheDirPath = getFilesDir().getAbsolutePath() + File.separator + APP_CACAHE_DIRNAME;
+            Log.e("QMCACHE",cacheDirPath);
             webSettings.setAppCachePath(cacheDirPath); //设置  Application Caches 缓存目录
             SPUtil.put(context, QM_SET,true);
         }

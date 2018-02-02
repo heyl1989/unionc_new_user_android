@@ -1,6 +1,8 @@
-package cn.v1.unionc_user.network_frame.core;
+package cn.v1.unionc_user.network_frame;
 
 import cn.v1.unionc_user.network_frame.UnionAPI;
+import cn.v1.unionc_user.network_frame.core.BaseObserver;
+import cn.v1.unionc_user.network_frame.core.RetrofitConfigure;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -11,14 +13,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ConnectHttp<T> {
 
-    //创建 GitHub API 接口的一个实例。
-    public static UnionAPI getGitHubAPI() {
-        return RetrofitConfigure.githubRetrofit.create(UnionAPI.class);
-    }
-
-    //创建  WuLiu API 口的一个实例。
-    public static UnionAPI getPictureAPI() {
-        return RetrofitConfigure.pictureRetrofit.create(UnionAPI.class);
+    //创建 Unionc API 接口的一个实例。
+    public static UnionAPI getUnionAPI() {
+        return RetrofitConfigure.unioncRetrofit.create(UnionAPI.class);
     }
 
     /**

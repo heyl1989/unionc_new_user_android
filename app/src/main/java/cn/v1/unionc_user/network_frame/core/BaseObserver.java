@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 
 import java.net.SocketTimeoutException;
 
+import cn.v1.unionc_user.utils.NetWorkUtils;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -57,9 +58,10 @@ public abstract class BaseObserver<T> implements Observer<T> {
             Toast.makeText(context, "请求超时", Toast.LENGTH_LONG).show();
         }
         e.printStackTrace();
+        onFail(e);
     }
 
-    public abstract void onfa(T t);
+    public abstract void onFail(Throwable e);
 
     @Override
     public void onComplete() {
