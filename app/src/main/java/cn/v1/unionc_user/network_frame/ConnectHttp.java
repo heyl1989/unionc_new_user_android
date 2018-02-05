@@ -18,6 +18,11 @@ public class ConnectHttp<T> {
         return RetrofitConfigure.unioncRetrofit.create(UnionAPI.class);
     }
 
+    //创建 Rong API 接口的一个实例。
+    public static RongAPI getRongAPI() {
+        return RetrofitConfigure.rongRetrofit.create(RongAPI.class);
+    }
+
     /**
      * 连接网络
      * @param observable

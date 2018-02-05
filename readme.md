@@ -1,0 +1,1 @@
+二维码扫描zxing参考[https://github.com/mylhyl/Android-Zxing](https://github.com/mylhyl/Android-Zxing)

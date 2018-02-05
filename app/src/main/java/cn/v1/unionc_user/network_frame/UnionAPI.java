@@ -1,8 +1,15 @@
 package cn.v1.unionc_user.network_frame;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
+import io.rong.imkit.RongIM;
 import okhttp3.ResponseBody;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HeaderMap;
+import retrofit2.http.POST;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
@@ -12,17 +19,5 @@ import retrofit2.http.Url;
 
 public interface UnionAPI {
 
-    //https://api.github.com/repos/square/retrofit/contributors
-//    @GET("/repos/{owner}/{repo}/contributors")
-//    Observable<List<Contributor>> getContributors(@Path("owner") String owner,
-//                                                  @Path("repo") String repo);
-    //https://search.maven.org/remote_content?g=com.squareup.retrofit2&a=converter-gson&v=LATEST
-    @GET("/remote_content?g=com.squareup.retrofit2&a=converter-gson&v=LATEST")
-    Observable<ResponseBody> getcontributorsAvator();
-
-    // !!! 当心大文件，当是大文件时
-    @Streaming
-    @GET
-    Observable<ResponseBody> downloadFileWithDynamicUrlAsync(@Url String fileUrl);
 
 }

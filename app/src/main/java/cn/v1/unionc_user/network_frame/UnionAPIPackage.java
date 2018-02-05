@@ -1,6 +1,11 @@
 package cn.v1.unionc_user.network_frame;
 
+import java.util.HashMap;
+
+import cn.v1.unionc_user.data.Common;
+import cn.v1.unionc_user.utils.SHA1Util;
 import io.reactivex.Observable;
+import io.rong.imkit.RongIM;
 import okhttp3.ResponseBody;
 
 /**
@@ -11,11 +16,4 @@ public class UnionAPIPackage {
 
 
 
-    /**
-     * 下载头像
-     * @return
-     */
-    public static Observable<ResponseBody> getcontributorsAvator() {
-        return ConnectHttp.getUnionAPI().getcontributorsAvator();
-    }
 }

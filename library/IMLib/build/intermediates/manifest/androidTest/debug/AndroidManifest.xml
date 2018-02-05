@@ -4,7 +4,7 @@
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="26" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -26,12 +26,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
         <!-- imlib config begin -->
         <meta-data
             android:name="RONG_CLOUD_APP_KEY"
-            android:value="此处添加APP_KEY" />
+            android:value="vnroth0kv4t0o" />
 
         <service
             android:name="io.rong.imlib.ipc.RongService"
@@ -86,6 +86,9 @@
             </intent-filter>
         </receiver>
 
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
         <meta-data
             android:name="android.arch.lifecycle.VERSION"
             android:value="27.0.0-SNAPSHOT" />
