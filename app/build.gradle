@@ -67,4 +67,5 @@ dependencies {
     implementation project(':library:IMLib')
     implementation files('libs/AMap_Location_V3.8.0_20180201.jar')
     compile 'com.mylhyl:zxingscanner:2.1.0'
+    compile 'com.contrarywind:Android-PickerView:3.2.7'
 }
