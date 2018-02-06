@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-eu\\values-eu.xml",
+            "map": [
+                {
+                    "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\values-eu\\values-eu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

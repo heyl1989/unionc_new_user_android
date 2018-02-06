@@ -2,6 +2,8 @@ package cn.v1.unionc_user.network_frame.core;
 
 import android.util.Log;
 
+import com.orhanobut.logger.Logger;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;

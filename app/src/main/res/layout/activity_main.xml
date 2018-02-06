@@ -4,34 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="cn.v1.unionc_user.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/ll_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" />
 
-    <TextView
-        android:id="@+id/tv_qm_health"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="青麦健康"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_qr_code"
-        android:layout_width="80dp"
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="扫码"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="true"
+            android:text="消息"
+            android:textColor="@color/main_tab_color_selector"
+            />
+
+        <RadioButton
+            android:id="@+id/discover"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="发现"
+            android:textColor="@color/main_tab_color_selector"
+            />
+
+        <RadioButton
+            android:id="@+id/personal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_weight="1"
+            android:text="我的"
+            android:textColor="@color/main_tab_color_selector"
+            />
+    </RadioGroup>
+
 
 </LinearLayout>

@@ -1,3 +1,5 @@
 - 首页参考[http://blog.csdn.net/u013933720/article/details/78191282](http://blog.csdn.net/u013933720/article/details/78191282)<br>
 - 二维码扫描zxing参考[https://github.com/heyl1989/Android-Zxing](https://github.com/heyl1989/Android-Zxing)<br>
 - 仿IOS时间滚轮参考[https://github.com/heyl1989/Android-PickerView](https://github.com/heyl1989/Android-PickerView)
+- 联系人选择[https://github.com/heyl1989/WaveSideBar](https://github.com/heyl1989/WaveSideBar)<br>
+- 日志管理[https://github.com/orhanobut/logger](https://github.com/orhanobut/logger)

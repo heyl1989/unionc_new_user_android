@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/IMKit" />
             <option value="$PROJECT_DIR$/library/IMLib" />
+            <option value="$PROJECT_DIR$/library/wavesidebar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

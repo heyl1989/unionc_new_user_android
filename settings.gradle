@@ -1,1 +1,1 @@
-include ':app', ':library:IMLib', ':library:IMKit'
+include ':app', ':library:IMLib', ':library:IMKit', ':library:wavesidebar'

@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_tile_bg.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_icon_group.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_bg.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_custom_big.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_action_tombstone.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_bg_low.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_action.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_part_time.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21_notification_action.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\layout\\notification_template_part_chronometer.xml"
+    }
+]

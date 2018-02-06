@@ -23,7 +23,7 @@
     <!-- 用于申请获取蓝牙信息进行室内定位 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <!--调用相机权限-->
+    <!-- 调用相机权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -61,7 +61,8 @@
 
         <service android:name="com.amap.api.location.APSService" />
         <!-- 高德定位功能完 -->
-        <activity android:name=".CaptureActivity"></activity>
+        <activity android:name=".CaptureActivity" />
+        <activity android:name=".ContactsActivity"></activity>
     </application>
 
 </manifest>

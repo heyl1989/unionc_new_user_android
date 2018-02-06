@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 
 import java.net.SocketTimeoutException;
 
@@ -32,7 +33,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onNext(@NonNull T t) {
-        Log.i("observer",new Gson().toJson(t));
+        Logger.json(new Gson().toJson(t));
         onResponse(t);
     }
 
@@ -40,7 +41,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onError(@NonNull Throwable e) {
-        Log.e("Observer",new Gson().toJson(e));
+        Logger.e(new Gson().toJson(e));
         if (!NetWorkUtils.isNetworkConnected(context)) {
 //            NetWorkSetDialog.showSetNetworkUI(context);
             Toast.makeText(context, "没有可用的网络", Toast.LENGTH_LONG).show();
@@ -51,10 +52,10 @@ public abstract class BaseObserver<T> implements Observer<T> {
         if (e.getMessage().contains("500")) {
             Toast.makeText(context, "网络500错误", Toast.LENGTH_LONG).show();
         }
-        if(e instanceof IllegalStateException){
+        if (e instanceof IllegalStateException) {
             Toast.makeText(context, "数据解析异常", Toast.LENGTH_LONG).show();
         }
-        if(e instanceof SocketTimeoutException){
+        if (e instanceof SocketTimeoutException) {
             Toast.makeText(context, "请求超时", Toast.LENGTH_LONG).show();
         }
         e.printStackTrace();
@@ -65,6 +66,6 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onComplete() {
-        Log.i("observable", "-----------已完成----------");
+        Logger.i("-----------已完成----------");
     }
 }

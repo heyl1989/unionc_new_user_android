@@ -10,9 +10,11 @@ import com.google.zxing.client.result.ParsedResult;
 import com.mylhyl.zxing.scanner.OnScannerCompletionListener;
 import com.mylhyl.zxing.scanner.ScannerOptions;
 import com.mylhyl.zxing.scanner.ScannerView;
+import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.v1.unionc_user.ui.base.BaseActivity;
 
 public class CaptureActivity extends BaseActivity {
 
@@ -39,9 +41,9 @@ public class CaptureActivity extends BaseActivity {
         mScannerView.setOnScannerCompletionListener(new OnScannerCompletionListener() {
             @Override
             public void onScannerCompletion(Result rawResult, ParsedResult parsedResult, Bitmap barcode) {
-                Log.d("qrScanner",new Gson().toJson(rawResult));
-                Log.d("qrScanner",new Gson().toJson(parsedResult));
-                Log.d("qrScanner",new Gson().toJson(barcode));
+                Logger.d(new Gson().toJson(rawResult));
+                Logger.d(new Gson().toJson(parsedResult));
+                Logger.d(new Gson().toJson(barcode));
                 mScannerView.restartPreviewAfterDelay(1000);
             }
         });

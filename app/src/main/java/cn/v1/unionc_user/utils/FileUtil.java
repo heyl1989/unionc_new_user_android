@@ -1,17 +1,14 @@
 package cn.v1.unionc_user.utils;
 
 import android.content.Context;
-import android.util.Log;
-
+import com.orhanobut.logger.Logger;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import okhttp3.ResponseBody;
 
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by qy on 2018/1/31.
@@ -47,7 +44,7 @@ public class FileUtil {
 
                     fileSizeDownloaded += read;
 
-                    Log.d(TAG, "file download: " + fileSizeDownloaded + " of " + fileSize);
+                    Logger.d( "file download: " + fileSizeDownloaded + " of " + fileSize);
                 }
 
                 outputStream.flush();

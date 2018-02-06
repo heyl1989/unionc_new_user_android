@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-en\\values-en.xml",
+            "map": [
+                {
+                    "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMLib\\build\\intermediates\\bundles\\debug\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,128,216,292,384,463",
+                        "endColumns": "72,87,75,91,78,75",
+                        "endOffsets": "123,211,287,379,458,534"
+                    }
+                }
+            ]
+        }
+    ]
+}
