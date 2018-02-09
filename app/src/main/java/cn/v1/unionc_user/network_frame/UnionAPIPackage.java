@@ -60,7 +60,7 @@ public class UnionAPIPackage {
     }
 
     /**
-     * 验证码下发
+     * 获取用户信息
      * @return
      */
     public static Observable<UserInfoData> getUserInfo(String token) {
