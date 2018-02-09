@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="cn.v1.unionc_user.MainActivity">
+    tools:context="cn.v1.unionc_user.ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/ll_fragment_container"
@@ -15,11 +15,16 @@
         android:layout_weight="1"
         android:orientation="horizontal" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"/>
 
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="55dp"
+        android:paddingTop="10dp"
         android:orientation="horizontal">
 
 
@@ -30,9 +35,10 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:checked="true"
-            android:text="消息"
-            android:textColor="@color/main_tab_color_selector"
+            android:drawableTop="@drawable/selector_main_tab_home"
+            android:text="首页"
+            android:textSize="12sp"
+            android:textColor="@color/selector_main_tab_color"
             />
 
         <RadioButton
@@ -43,7 +49,9 @@
             android:button="@null"
             android:gravity="center"
             android:text="发现"
-            android:textColor="@color/main_tab_color_selector"
+            android:textSize="12sp"
+            android:textColor="@color/selector_main_tab_color"
+            android:drawableTop="@drawable/selector_main_tab_discover"
             />
 
         <RadioButton
@@ -54,7 +62,9 @@
             android:button="@null"
             android:layout_weight="1"
             android:text="我的"
-            android:textColor="@color/main_tab_color_selector"
+            android:textSize="12sp"
+            android:textColor="@color/selector_main_tab_color"
+            android:drawableTop="@drawable/selector_main_tab_me"
             />
     </RadioGroup>
 

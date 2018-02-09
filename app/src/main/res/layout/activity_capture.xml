@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.v1.unionc_user.CaptureActivity">
+    tools:context="cn.v1.unionc_user.ui.message.CaptureActivity">
 
     <com.mylhyl.zxing.scanner.ScannerView
         android:id="@+id/scanner_view"

@@ -1,16 +1,20 @@
 package cn.v1.unionc_user.ui.discover;
 
 
+import android.app.ProgressDialog;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ConsoleMessage;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -38,6 +42,8 @@ public class DiscoverFragment extends BaseFragment {
     @Bind(R.id.webview)
     WebView webview;
 
+    private ProgressDialog progressdialog;
+
     public DiscoverFragment() {
         // Required empty public constructor
     }
@@ -58,6 +64,7 @@ public class DiscoverFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showDialog("加载中...");
         webViewConfigure();
     }
 
@@ -65,6 +72,15 @@ public class DiscoverFragment extends BaseFragment {
      * 配置webview
      */
     private void webViewConfigure() {
+        webview.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if(newProgress == 100){
+                    closeDialog();
+                }
+            }
+        });
         webview.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -99,7 +115,7 @@ public class DiscoverFragment extends BaseFragment {
         //支持内容重新布局
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         //设置webview中缓存
-        if (NetWorkUtils.isNetworkConnected(getActivity())) {
+        if (NetWorkUtils.isNetworkConnected(context)) {
             webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);//根据cache-control决定是否从网络上取数据。
         } else {
             webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//没网，则从本地获取，即离线加载
@@ -107,11 +123,11 @@ public class DiscoverFragment extends BaseFragment {
         webSettings.setDomStorageEnabled(true); // 开启 DOM storage API 功能
         webSettings.setDatabaseEnabled(true);   //开启 database storage API 功能
         webSettings.setAppCacheEnabled(true);//开启 Application Caches 功能
-        if(!SPUtil.contains(getActivity(),QM_SET)){
-            String cacheDirPath = getActivity().getFilesDir().getAbsolutePath() + File.separator + APP_CACAHE_DIRNAME;
+        if(!SPUtil.contains(context,QM_SET)){
+            String cacheDirPath = context.getFilesDir().getAbsolutePath() + File.separator + APP_CACAHE_DIRNAME;
             Logger.e(cacheDirPath);
             webSettings.setAppCachePath(cacheDirPath); //设置  Application Caches 缓存目录
-            SPUtil.put(getActivity(), QM_SET,true);
+            SPUtil.put(context, QM_SET,true);
         }
         webview.loadUrl(url);
     }

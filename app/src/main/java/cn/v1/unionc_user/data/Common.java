@@ -15,4 +15,9 @@ public class Common {
     public static final String RONG_AK = "vnroth0kv4t0o";
 
     public static final String RONG_SK = "cs2qKA5rvvN";
+
+    public static final String KEY_UUID = "uuid";
+
+    public static final String USER_TOKEN = "userToken";
+
 }

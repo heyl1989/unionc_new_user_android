@@ -1,4 +1,4 @@
-package cn.v1.unionc_user;
+package cn.v1.unionc_user.ui.message;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 
 public class CaptureActivity extends BaseActivity {
@@ -44,6 +45,7 @@ public class CaptureActivity extends BaseActivity {
                 Logger.d(new Gson().toJson(rawResult));
                 Logger.d(new Gson().toJson(parsedResult));
                 Logger.d(new Gson().toJson(barcode));
+                showTost(rawResult.getText());
                 mScannerView.restartPreviewAfterDelay(1000);
             }
         });

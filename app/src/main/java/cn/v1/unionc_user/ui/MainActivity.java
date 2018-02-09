@@ -1,4 +1,4 @@
-package cn.v1.unionc_user;
+package cn.v1.unionc_user.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +18,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 import cn.v1.unionc_user.ui.discover.DiscoverFragment;
 import cn.v1.unionc_user.ui.me.PersonalFragment;
@@ -25,26 +26,18 @@ import cn.v1.unionc_user.ui.message.MessageFragment;
 
 public class MainActivity extends BaseActivity {
 
-
-    @Bind(R.id.ll_fragment_container)
-    LinearLayout llFragmentContainer;
-    @Bind(R.id.message)
-    RadioButton message;
-    @Bind(R.id.discover)
-    RadioButton discover;
-    @Bind(R.id.personal)
-    RadioButton personal;
     @Bind(R.id.rg)
     RadioGroup rg;
 
     private Fragment mCurrentfragment;//记录选中的fragment
+    private int mCurrentCheckedId;//记录选中的id
     private MessageFragment messageFragment;
     private DiscoverFragment discoverFragment;
     private PersonalFragment personalFragment;
     private final String MESSAGE = "message";
     private final String DISCOVER = "discover";
     private final String PERSONAL = "personal";
-    private String[] tags = new String[]{MESSAGE,DISCOVER,PERSONAL};
+    private String[] tags = new String[]{MESSAGE, DISCOVER, PERSONAL};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +50,22 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
+        rg.check(R.id.message);
+        mCurrentCheckedId = R.id.message;
         stateCheck(outState);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.message:
+                        mCurrentCheckedId = R.id.message;
                         if (null == messageFragment) {
                             messageFragment = new MessageFragment();
                         }
                         switchContent(messageFragment, 0);
                         break;
                     case R.id.discover:
+                        mCurrentCheckedId = R.id.discover;
                         if (null == discoverFragment) {
                             discoverFragment = new DiscoverFragment();
                         }
@@ -78,7 +75,12 @@ public class MainActivity extends BaseActivity {
                         if (null == personalFragment) {
                             personalFragment = new PersonalFragment();
                         }
-                        switchContent(personalFragment, 2);
+                        if (isLogin()) {
+                            switchContent(personalFragment, 2);
+                        } else {
+                            goNewActivity(LoginActivity.class);
+                            rg.check(mCurrentCheckedId);
+                        }
                         break;
                 }
             }
@@ -108,7 +110,7 @@ public class MainActivity extends BaseActivity {
      */
     private void stateCheck(Bundle saveInstanceState) {
         Logger.i(new Gson().toJson(saveInstanceState));
-        if(null != saveInstanceState){
+        if (null != saveInstanceState) {
             //通过tag找回失去引用但是存在内存中的fragment.id相同
             MessageFragment messageFragment = (MessageFragment) getSupportFragmentManager().findFragmentByTag(tags[0]);
             DiscoverFragment discoverFragment = (DiscoverFragment) getSupportFragmentManager().findFragmentByTag(tags[1]);
@@ -119,9 +121,9 @@ public class MainActivity extends BaseActivity {
                     .hide(discoverFragment)
                     .hide(personalFragment)
                     .commit();
-        }else{
+        } else {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            if(null == messageFragment){
+            if (null == messageFragment) {
                 messageFragment = new MessageFragment();
             }
             transaction.add(R.id.ll_fragment_container, messageFragment, tags[0]).commit();

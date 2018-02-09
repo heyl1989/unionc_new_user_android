@@ -33,15 +33,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        <activity
+            android:name=".ui.StartActivity"
+            android:theme="@style/Start_Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QMWebViewActivity" />
+        <activity android:name=".ui.MainActivity" />
         <!-- 融云接受消息推送的广播 -->
         <receiver
             android:name=".receiver.UnioncNotifacationReceiver"
@@ -61,8 +62,9 @@
 
         <service android:name="com.amap.api.location.APSService" />
         <!-- 高德定位功能完 -->
-        <activity android:name=".CaptureActivity" />
-        <activity android:name=".ContactsActivity"></activity>
+        <activity android:name=".ui.message.CaptureActivity" />
+        <activity android:name=".ui.ContactsActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>

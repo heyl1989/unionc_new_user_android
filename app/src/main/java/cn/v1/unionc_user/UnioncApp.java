@@ -14,10 +14,19 @@ import io.rong.imkit.RongIM;
 
 public class UnioncApp extends MultiDexApplication {
 
+    private static UnioncApp app;
+
+    public static UnioncApp getInstance(){
+        if(app == null)
+            throw new NullPointerException("app not create or be terminated!");
+        return app;
+    }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+        app = this;
         RongIM.init(this);
         initLog();
     }

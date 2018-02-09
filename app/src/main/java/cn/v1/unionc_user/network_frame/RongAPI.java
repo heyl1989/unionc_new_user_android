@@ -5,6 +5,7 @@ import java.util.Map;
 import cn.v1.unionc_user.model.RongTokenData;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
@@ -16,6 +17,6 @@ import retrofit2.http.POST;
 public interface RongAPI {
     @FormUrlEncoded
     @POST("/user/getToken.json")
-    Observable<RongTokenData> getRongToken(@HeaderMap Map<String, String> headers, @Field("userId") String userId, @Field("name") String name, @Field("portraitUri") String portraitUri);
+    Observable<RongTokenData> getRongToken(@HeaderMap Map<String, String> headers, @FieldMap Map<String, String> params);
 
 }

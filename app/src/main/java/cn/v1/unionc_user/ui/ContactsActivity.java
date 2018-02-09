@@ -1,4 +1,4 @@
-package cn.v1.unionc_user;
+package cn.v1.unionc_user.ui;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +7,7 @@ import com.gjiazhe.wavesidebar.WaveSideBar;
 import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.model.Contact;
 import cn.v1.unionc_user.ui.adapter.ContactsAdapter;
 import cn.v1.unionc_user.ui.base.BaseActivity;

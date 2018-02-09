@@ -1,16 +1,14 @@
-package cn.v1.unionc_user;
+package cn.v1.unionc_user.ui;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 
 public class StartActivity extends BaseActivity {
-
-    @Bind(R.id.rl_start)
-    RelativeLayout rlStart;
 
     private Handler handler = new Handler();
 

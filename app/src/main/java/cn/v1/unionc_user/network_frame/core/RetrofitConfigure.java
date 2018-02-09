@@ -1,5 +1,6 @@
 package cn.v1.unionc_user.network_frame.core;
 
+import cn.v1.unionc_user.network_frame.UnioncURL;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -11,12 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitConfigure {
 
     /**
-     * GitHub配置
+     * Unionc
      */
-    private static final String Unionc_Host = "https://api.github.com";
 
     public static Retrofit unioncRetrofit = new Retrofit.Builder()
-            .baseUrl(Unionc_Host)
+            .baseUrl(UnioncURL.Unionc_Host)
             .client(OkHttpConfigure.httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
