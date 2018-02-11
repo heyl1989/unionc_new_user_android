@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +24,16 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.v1.unionc_user.R;
-import cn.v1.unionc_user.ui.LoginActivity;
+import cn.v1.unionc_user.data.Common;
+import cn.v1.unionc_user.data.SPUtil;
+import cn.v1.unionc_user.model.HomeListData;
+import cn.v1.unionc_user.network_frame.ConnectHttp;
+import cn.v1.unionc_user.network_frame.UnionAPIPackage;
+import cn.v1.unionc_user.network_frame.core.BaseObserver;
 import cn.v1.unionc_user.ui.adapter.HomeListAdapter;
 import cn.v1.unionc_user.ui.base.BaseFragment;
 import cn.v1.unionc_user.utils.Location;
 import cn.v1.unionc_user.view.BannerView;
-import io.rong.imkit.widget.adapter.MessageListAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +61,8 @@ public class MessageFragment extends BaseFragment {
     RecyclerView mainRecycleview;
 
     private int[] imgs = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d};
+    private HomeListAdapter homeListAdapter;
+    private List<HomeListData.DataData.HomeData> datas = new ArrayList<>();
 
     public MessageFragment() {
         // Required empty public constructor
@@ -91,6 +100,7 @@ public class MessageFragment extends BaseFragment {
             case R.id.tv_yihu:
                 break;
             case R.id.tv_health:
+                goNewActivity(HealthClassActivity.class);
                 break;
         }
     }
@@ -109,7 +119,7 @@ public class MessageFragment extends BaseFragment {
         banner.startLoop(true);
 
         mainRecycleview.setLayoutManager(new LinearLayoutManager(context));
-        HomeListAdapter homeListAdapter = new HomeListAdapter(context);
+        homeListAdapter = new HomeListAdapter(context);
         mainRecycleview.setAdapter(homeListAdapter);
     }
 
@@ -122,6 +132,9 @@ public class MessageFragment extends BaseFragment {
                 tvCity.setText(amapLocation.getCity());
                 tvAddress.setText(amapLocation.getPoiName());
                 stopLocation();
+                String longitude = amapLocation.getLongitude() + "";
+                String latitude = amapLocation.getLatitude() + "";
+                getHomeList(longitude, latitude);
                 closeDialog();
             }
 
@@ -134,6 +147,51 @@ public class MessageFragment extends BaseFragment {
         };
     }
 
+
+    private void getHomeList(String longitude, String latitude) {
+        showDialog("加载中...");
+        String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
+        ConnectHttp.connect(UnionAPIPackage.getHomeList(token, longitude, latitude), new BaseObserver<HomeListData>(context) {
+            @Override
+            public void onResponse(HomeListData data) {
+                closeDialog();
+                if (TextUtils.equals("4000", data.getCode())) {
+                    if (data.getData().getAttendingDoctors().size() != 0) {
+                        int attendingDoctors = data.getData().getAttendingDoctors().size();
+                        for (int i = 0; i < attendingDoctors; i++) {
+                            datas.add(data.getData().getAttendingDoctors().get(i));
+                            datas.get(i).setType(Common.ATTENDING_DOCTORS);
+                        }
+
+                    }
+                    if (data.getData().getRecommendDoctors().size() != 0) {
+                        int recommendDoctors = data.getData().getRecommendDoctors().size();
+                        for (int i = 0; i < recommendDoctors; i++) {
+                            datas.add(data.getData().getRecommendDoctors().get(i));
+                            datas.get(i).setType(Common.RECOMMEND_DOCTOR);
+                        }
+                    }
+                    if (data.getData().getSignedDoctros().size() != 0) {
+                        int SignedDoctros = data.getData().getSignedDoctros().size();
+                        for (int i = 0; i < SignedDoctros; i++) {
+                            datas.add(data.getData().getSignedDoctros().get(i));
+                            datas.get(i).setType(Common.SIGNED_DOCTROS);
+                        }
+                    }
+                    homeListAdapter.setData(datas);
+                    Logger.json(new Gson().toJson(datas));
+                } else {
+                    showTost(data.getMessage());
+                }
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                closeDialog();
+            }
+        });
+
+    }
 
     @Override
     public void onDestroyView() {

@@ -3,6 +3,7 @@ package cn.v1.unionc_user.network_frame;
 import java.util.Map;
 
 import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.model.HomeListData;
 import cn.v1.unionc_user.model.LoginData;
 import cn.v1.unionc_user.model.UserInfoData;
 import io.reactivex.Observable;
@@ -46,6 +47,15 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("user/user-info")
     Observable<UserInfoData> getUserInfo(@FieldMap Map<String, Object> params);
+
+    /**
+     * 获取首页信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("clinic/home-page2")
+    Observable<HomeListData> getHomeList(@FieldMap Map<String, Object> params);
 
 
 }

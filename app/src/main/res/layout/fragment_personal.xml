@@ -120,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/white"
-        android:drawableLeft="@drawable/icon_follow"
+        android:drawableLeft="@drawable/icon_follow_yellow"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:paddingLeft="12dp"

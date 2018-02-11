@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="12dp"
-            android:src="@drawable/icon_tab_me_select"
+            tools:src="@drawable/icon_tab_me_select"
             />
 
         <RelativeLayout
@@ -32,7 +34,7 @@
                 android:id="@+id/tv_message_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="就诊记录"
+                tools:text="就诊记录"
                 android:textColor="@color/main_text"
                 android:textSize="16sp" />
 
@@ -42,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_message_name"
                 android:layout_toRightOf="@id/tv_message_name"
-                android:text="（家庭医生）"
+                tools:text="（家庭医生）"
                 android:textColor="@color/detail_text"
                 android:textSize="14sp" />
 
@@ -52,9 +54,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_message_name"
                 android:layout_marginTop="6dp"
-                android:lines="1"
+                android:lines="2"
+                android:lineSpacingExtra="3dp"
                 android:ellipsize="end"
-                android:text="最近经常发低烧，还腹泻，怎么回事？"
+                tools:text="最近经常发低烧，还腹泻，怎么回事？"
                 android:textColor="@color/detail_text"
                 android:textSize="14dp" />
 
@@ -64,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_message_name"
                 android:layout_alignParentRight="true"
-                android:text="下午13:09"
+                tools:text="下午13:09"
                 android:textColor="@color/detail_text"
                 android:textSize="14dp" />
 

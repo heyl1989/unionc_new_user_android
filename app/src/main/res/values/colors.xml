@@ -8,6 +8,7 @@
     <color name="tab_grey">#9B9CA0</color>
     <color name="line">#e1e5f2</color>
     <color name="main_text">#26282E</color>
+    <color name="describe_color">#4F5360</color>
     <color name="detail_text">#9B9CA0</color>
     <color name="tool_bar">#FAFAFA</color>
     <color name="windowbackground">#F2F2F2</color>

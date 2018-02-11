@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.model.HomeListData;
 import cn.v1.unionc_user.model.LoginData;
 import cn.v1.unionc_user.model.UserInfoData;
 import cn.v1.unionc_user.network_frame.core.BaseObserver;
@@ -49,6 +50,7 @@ public class UnionAPIPackage {
     /**
      * 登录
      * @param userMobile 手机号
+     * @param authCode   验证码
      * @return
      */
     public static Observable<LoginData> login(String userMobile, String authCode) {
@@ -67,6 +69,20 @@ public class UnionAPIPackage {
         HashMap<String, String> params = new HashMap<>();
         params.put("token",token);
         return ConnectHttp.getUnionAPI().getUserInfo(dataProcess(params));
+    }
+
+
+    /**
+     * 获取首页列表
+     * @return
+     */
+    public static Observable<HomeListData> getHomeList(String token , String longitude, String latitude) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token",token);
+        params.put("imei",MobileConfigUtil.getMacCode());
+        params.put("longitude",longitude);
+        params.put("latitude",latitude);
+        return ConnectHttp.getUnionAPI().getHomeList(dataProcess(params));
     }
 
 }
