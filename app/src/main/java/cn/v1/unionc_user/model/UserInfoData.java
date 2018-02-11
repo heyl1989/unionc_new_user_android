@@ -4,7 +4,7 @@ package cn.v1.unionc_user.model;
  * Created by qy on 2018/2/9.
  */
 
-public class UserInfoData extends BaseData{
+public class UserInfoData extends BaseData {
 
 
     /**

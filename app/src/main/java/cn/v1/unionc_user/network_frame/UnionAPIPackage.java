@@ -2,8 +2,6 @@ package cn.v1.unionc_user.network_frame;
 
 import com.google.gson.Gson;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +9,6 @@ import cn.v1.unionc_user.model.BaseData;
 import cn.v1.unionc_user.model.HomeListData;
 import cn.v1.unionc_user.model.LoginData;
 import cn.v1.unionc_user.model.UserInfoData;
-import cn.v1.unionc_user.network_frame.core.BaseObserver;
 import cn.v1.unionc_user.utils.MobileConfigUtil;
 import io.reactivex.Observable;
 

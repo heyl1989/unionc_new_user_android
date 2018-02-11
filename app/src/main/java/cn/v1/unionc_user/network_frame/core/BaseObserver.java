@@ -1,7 +1,8 @@
 package cn.v1.unionc_user.network_frame.core;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -9,6 +10,10 @@ import com.orhanobut.logger.Logger;
 
 import java.net.SocketTimeoutException;
 
+import cn.v1.unionc_user.data.Common;
+import cn.v1.unionc_user.data.SPUtil;
+import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.ui.LoginActivity;
 import cn.v1.unionc_user.utils.NetWorkUtils;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
@@ -34,6 +39,15 @@ public abstract class BaseObserver<T> implements Observer<T> {
     @Override
     public void onNext(@NonNull T t) {
         Logger.json(new Gson().toJson(t));
+        if (BaseData.class.isAssignableFrom(t.getClass())) {
+            BaseData baseData = (BaseData)t;
+            //检查Token是否过期
+            if(TextUtils.equals("0100",baseData.getCode())){
+                SPUtil.remove(context, Common.USER_TOKEN);
+                Intent intent = new Intent(context, LoginActivity.class);
+                context.startActivity(intent);
+            }
+        }
         onResponse(t);
     }
 

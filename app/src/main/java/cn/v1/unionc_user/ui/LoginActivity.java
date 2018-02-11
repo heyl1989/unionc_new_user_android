@@ -14,8 +14,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.v1.unionc_user.R;
-import cn.v1.unionc_user.data.Common;
-import cn.v1.unionc_user.data.SPUtil;
 import cn.v1.unionc_user.model.BaseData;
 import cn.v1.unionc_user.model.LoginData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;

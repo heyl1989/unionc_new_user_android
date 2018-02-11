@@ -76,7 +76,7 @@ public class BaseActivity extends FragmentActivity {
      * 退出
      */
     protected void logout() {
-        SPUtil.clear(context, Common.USER_TOKEN);
+        SPUtil.remove(context, Common.USER_TOKEN);
     }
 
 

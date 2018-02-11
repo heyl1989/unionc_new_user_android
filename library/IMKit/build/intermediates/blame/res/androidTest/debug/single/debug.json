@@ -1,19 +1,19 @@
 [
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_read_receipt_request.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_read_receipt_request.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ic_phone_pressed.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ic_phone_pressed.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ext_location_marker.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ext_location_marker.png"
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_read_receipt_request.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_read_receipt_request.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u2600.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u2600.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ext_location_marker.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ext_location_marker.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f36b.png.flat",
@@ -36,12 +36,12 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable\\rc_switch_btn.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_cs_leave_message_bg.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_cs_leave_message_bg.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_item_public_service_message.xml.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_item_public_service_message.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_cs_leave_message_bg.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_cs_leave_message_bg.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f606.png.flat",
@@ -64,12 +64,12 @@
         "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5b07f119fe0ea6cdb4e9ea80b7c37169\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_rc_cs_evaluate_selector.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable\\rc_cs_evaluate_selector.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_default_discussion_portrait.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_default_discussion_portrait.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_rc_cs_evaluate_selector.xml.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable\\rc_cs_evaluate_selector.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_picsel_grid_camera.xml.flat",
@@ -140,36 +140,36 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ic_notice_point.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_media_custom.xml.flat",
-        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5b07f119fe0ea6cdb4e9ea80b7c37169\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_origin_check_sel.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_origin_check_sel.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5b07f119fe0ea6cdb4e9ea80b7c37169\\res\\layout\\notification_template_media_custom.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_rc_sp_grid_mask.xml.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable\\rc_sp_grid_mask.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_fr_conversation_member_list.xml.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_fr_conversation_member_list.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_refresh_list_view.xml.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_refresh_list_view.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_fr_conversation_member_list.xml.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_fr_conversation_member_list.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u263a.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u263a.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ed_pub_service_search_normal.9.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ed_pub_service_search_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "D:\\develop\\Android\\Android Studio\\gradle\\gradle-4.1\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\0f745b342585b585a9f7e432675e332c\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_cs_evaluate.xml.flat",
@@ -188,12 +188,12 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_fr_file_list.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_menu_text_hover.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_menu_text_hover.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_no.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_no.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_menu_text_hover.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_menu_text_hover.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
@@ -236,24 +236,24 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_picsel_pictype_normal.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f004.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f004.png"
-    },
-    {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u2b50.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u2b50.png"
-    },
-    {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_receive_voice_one.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_receive_voice_one.png"
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_radio_button_off.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_radio_button_off.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_dialog_popup_prompt_warning.xml.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_dialog_popup_prompt_warning.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_radio_button_off.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_radio_button_off.png"
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_receive_voice_one.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_receive_voice_one.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u2b50.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u2b50.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f004.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f004.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_receive_voice_three.png.flat",
@@ -300,12 +300,12 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_item_preview_fragment.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ad_list_ppt_icon.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ad_list_ppt_icon.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ext_my_locator.png.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ext_my_locator.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_rc_ad_list_ppt_icon.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ad_list_ppt_icon.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_rc_cs_leave_message_btn.xml.flat",
@@ -336,12 +336,12 @@
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_ac_albums.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f48b.png.flat",
-        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f48b.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_rc_input_pager_layout.xml.flat",
         "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_input_pager_layout.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_u1f48b.png.flat",
+        "source": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f48b.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\unionc_new_user_android\\library\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_big_media.xml.flat",

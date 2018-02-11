@@ -63,7 +63,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="37dp"
                 android:layout_toRightOf="@+id/img_avator"
-                android:text="13810205545"
+                tools:text="13810205545"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -95,7 +95,7 @@
                     android:id="@+id/img_user_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_passed" />
+                    tools:src="@drawable/icon_passed" />
 
                 <TextView
                     android:id="@+id/tv_state"
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="已认证"
+                    tools:text="已认证"
                     android:textColor="@color/qm_blue"
                     android:textSize="12sp" />
 
@@ -152,7 +152,7 @@
                 android:id="@+id/tv_doctor_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -185,7 +185,7 @@
                 android:id="@+id/tv_hospital_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -217,7 +217,7 @@
                 android:id="@+id/tv_comment_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
                 android:textStyle="bold" />

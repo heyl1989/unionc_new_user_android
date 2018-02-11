@@ -49,6 +49,14 @@ public class MainActivity extends BaseActivity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        if (!isLogin()) {
+            rg.check(mCurrentCheckedId);
+        }
+        super.onResume();
+    }
+
     private void initView() {
         rg.check(R.id.message);
         mCurrentCheckedId = R.id.message;
