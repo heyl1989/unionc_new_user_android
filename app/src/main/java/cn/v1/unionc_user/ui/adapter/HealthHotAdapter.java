@@ -12,7 +12,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.v1.unionc_user.R;
-import cn.v1.unionc_user.ui.message.HealthClassDetailActivity;
+import cn.v1.unionc_user.ui.home.HealthClassDetailActivity;
 import cn.v1.unionc_user.view.CircleImageView;
 
 /**

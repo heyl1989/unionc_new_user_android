@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_doctor_avator"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_doctor_avator"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="魏丽华"
+            android:textColor="@color/main_text"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_doctor_name"
+            android:layout_alignBaseline="@+id/tv_doctor_name"
+            android:text="小儿内科"
+            android:textColor="@color/detail_text"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_doctor_name"
+            android:layout_toRightOf="@+id/img_doctor_avator"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="北京协和医院广安门附属医院"
+            android:textColor="@color/describe_color"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_special"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_hospital"
+            android:layout_toRightOf="@+id/img_doctor_avator"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="擅长：生长发育、营养、咳嗽、腹痛…"
+            android:textColor="@color/describe_color"
+            android:textSize="14dp" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="12dp"
+        android:background="@color/line" />
+
+
+</LinearLayout>

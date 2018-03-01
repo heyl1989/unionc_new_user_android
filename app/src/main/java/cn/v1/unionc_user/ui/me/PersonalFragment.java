@@ -2,11 +2,13 @@ package cn.v1.unionc_user.ui.me;
 
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,8 @@ import cn.v1.unionc_user.network_frame.core.BaseObserver;
 import cn.v1.unionc_user.ui.LoginActivity;
 import cn.v1.unionc_user.ui.base.BaseFragment;
 import cn.v1.unionc_user.view.CircleImageView;
+import cn.v1.unionc_user.view.PromptDialog;
+import cn.v1.unionc_user.view.dialog_interface.OnButtonClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,8 +103,21 @@ public class PersonalFragment extends BaseFragment {
             case R.id.tv_kefu:
                 break;
             case R.id.tv_logout:
-//                logout();
-//                goNewActivity(LoginActivity.class);
+                PromptDialog logoutDialog = new PromptDialog(context);
+                logoutDialog.show();
+                logoutDialog .setTitle("退出登录");
+                logoutDialog.setMessage("确认退出登录？");
+                logoutDialog.setOnButtonClickListener(new OnButtonClickListener() {
+                    @Override
+                    public void onConfirmClick() {
+                        logout();
+                        goNewActivity(LoginActivity.class);
+                        tvLogout.setVisibility(View.GONE);
+                    }
+                    @Override
+                    public void onCancelClick() {
+                    }
+                });
                 break;
         }
     }

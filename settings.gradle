@@ -1,1 +1,1 @@
-include ':app', ':library:IMLib', ':library:IMKit', ':library:wavesidebar'
+include ':app', ':library:wavesidebar', ':library:labels', ':library:TIM_SDK', ':library:TIM_UI', 'library:TIM_PRESENTATION'

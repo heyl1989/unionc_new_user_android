@@ -1,6 +1,7 @@
 package cn.v1.unionc_user.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
 import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.data.Common;
 import cn.v1.unionc_user.model.HomeListData;
+import cn.v1.unionc_user.ui.home.DoctorDetailActivity;
 
 /**
  * Created by qy on 2018/2/7.
@@ -45,25 +47,49 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
 
     @Override
-    public void onBindViewHolder(HomeListAdapter.ViewHolder holder, int position) {
-        HomeListData.DataData.HomeData homeData = datas.get(position);
+    public void onBindViewHolder(HomeListAdapter.ViewHolder holder, final int position) {
+        final HomeListData.DataData.HomeData homeData = datas.get(position);
         if (TextUtils.equals(homeData.getType(), Common.INQUIRY_RECORD)) {
-
+            Glide.with(context).load(homeData.getImagePath()).into(holder.imgMessageAvator);
+            holder.tvMessageName.setText(homeData.getDoctorName() + "  ");
+            holder.tvDescribe.setText(homeData.getClinicName() + "\n" +
+                    homeData.getMajor());
         }
         if (TextUtils.equals(homeData.getType(), Common.ATTENDING_DOCTORS)) {
-
+            Glide.with(context).load(homeData.getImagePath()).into(holder.imgMessageAvator);
+            holder.tvMessageName.setText(homeData.getDoctorName() + "  ");
+            holder.tvRole.setText("（主治医生）");
+            holder.tvDescribe.setText("最近的聊天记录");
         }
         if (TextUtils.equals(homeData.getType(), Common.SIGNED_DOCTROS)) {
-
+            Glide.with(context).load(homeData.getImagePath()).into(holder.imgMessageAvator);
+            holder.tvMessageName.setText(homeData.getDoctorName() + "  ");
+            holder.tvRole.setText("（家庭医生）");
+            holder.tvDescribe.setText("最近的聊天记录");
         }
         if (TextUtils.equals(homeData.getType(), Common.RECOMMEND_DOCTOR)) {
-            Glide.with(context).load("").into(holder.imgMessageAvator);
+            Glide.with(context).load(homeData.getImagePath()).into(holder.imgMessageAvator);
             holder.tvMessageName.setText(homeData.getDoctorName() + "  ");
             holder.tvRole.setText(homeData.getDepartName() + "  " +
                     homeData.getProfessLevel());
             holder.tvDescribe.setText(homeData.getClinicName() + "\n" +
                     homeData.getMajor());
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String type = datas.get(position).getType();
+                String doctorId =  datas.get(position).getDoctId() + "";
+                if(TextUtils.equals(type, Common.RECOMMEND_DOCTOR) ||
+                        TextUtils.equals(type, Common.SIGNED_DOCTROS)||
+                        TextUtils.equals(type, Common.ATTENDING_DOCTORS)){
+                    Intent intent = new Intent(context, DoctorDetailActivity.class);
+                    intent.putExtra("doctorId",doctorId);
+                    context.startActivity(intent);
+                }
+            }
+        });
 
     }
 

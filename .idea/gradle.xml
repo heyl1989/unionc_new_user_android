@@ -10,8 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/library/IMKit" />
-            <option value="$PROJECT_DIR$/library/IMLib" />
+            <option value="$PROJECT_DIR$/library/TIM_PRESENTATION" />
+            <option value="$PROJECT_DIR$/library/TIM_SDK" />
+            <option value="$PROJECT_DIR$/library/TIM_UI" />
+            <option value="$PROJECT_DIR$/library/labels" />
             <option value="$PROJECT_DIR$/library/wavesidebar" />
           </set>
         </option>

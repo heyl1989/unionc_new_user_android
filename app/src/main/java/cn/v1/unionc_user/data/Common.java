@@ -20,6 +20,9 @@ public class Common {
 
     public static final String USER_TOKEN = "userToken";
 
+    public static final String LONGITUDE = "longitude";
+    public static final String LATITUDE = "latitude";
+
     public static final String INQUIRY_RECORD = "inquiryRecord";
     public static final String RECOMMEND_DOCTOR = "recommendDoctor";
     public static final String ATTENDING_DOCTORS = "attendingDoctors";

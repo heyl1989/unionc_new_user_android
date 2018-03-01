@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.v1.unionc_user.ui.message.HealthClassDetailActivity">
+    tools:context="cn.v1.unionc_user.ui.home.HealthClassDetailActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

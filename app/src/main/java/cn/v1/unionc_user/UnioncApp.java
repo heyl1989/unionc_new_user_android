@@ -1,12 +1,12 @@
 package cn.v1.unionc_user;
 
-import android.app.Application;
 import android.support.multidex.MultiDexApplication;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import io.rong.imkit.RongIM;
+import cn.v1.unionc_user.tecent_qcloud.InitSDK;
+import cn.v1.unionc_user.tecent_qcloud.UserConfig;
 
 /**
  * Created by qy on 2018/2/1.
@@ -27,8 +27,18 @@ public class UnioncApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         app = this;
-        RongIM.init(this);
+        //取消融云
+        //RongIM.init(this);
         initLog();
+        initTIM();
+    }
+
+    /**
+     * 腾讯云初始化
+     */
+    private void initTIM() {
+        InitSDK.init(getInstance());
+        UserConfig.init();
     }
 
     private void initLog() {

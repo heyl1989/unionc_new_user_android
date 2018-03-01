@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMManager;
 
 import java.net.SocketTimeoutException;
 
@@ -46,6 +48,21 @@ public abstract class BaseObserver<T> implements Observer<T> {
                 SPUtil.remove(context, Common.USER_TOKEN);
                 Intent intent = new Intent(context, LoginActivity.class);
                 context.startActivity(intent);
+                //登出
+                TIMManager.getInstance().logout(new TIMCallBack() {
+                    @Override
+                    public void onError(int code, String desc) {
+
+                        //错误码code和错误描述desc，可用于定位请求失败原因
+                        //错误码code列表请参见错误码表
+                        Logger.e("logout failed. code: " + code + " errmsg: " + desc);
+                    }
+
+                    @Override
+                    public void onSuccess() {
+                        //登出成功
+                    }
+                });
             }
         }
         onResponse(t);

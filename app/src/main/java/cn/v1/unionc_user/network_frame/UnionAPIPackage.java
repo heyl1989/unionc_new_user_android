@@ -6,8 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.model.DoctorInfoData;
 import cn.v1.unionc_user.model.HomeListData;
 import cn.v1.unionc_user.model.LoginData;
+import cn.v1.unionc_user.model.TIMSigData;
 import cn.v1.unionc_user.model.UserInfoData;
 import cn.v1.unionc_user.utils.MobileConfigUtil;
 import io.reactivex.Observable;
@@ -23,63 +25,95 @@ public class UnionAPIPackage {
 
     /**
      * 数据处理
+     *
      * @param params 传递的参数
      * @return
      */
-    private static Map<String,Object> dataProcess(Map<String,String> params){
+    private static Map<String, Object> dataProcess(Map<String, String> params) {
         HashMap<String, Object> processData = new HashMap<>();
         processData.put("data", gson.toJson(params).toString());
-        processData.put("encryption",false);
+        processData.put("encryption", false);
         return processData;
     }
 
     /**
      * 验证码下发
+     *
      * @param userMobile 手机号
      * @return
      */
     public static Observable<BaseData> getAuthCode(String userMobile) {
         HashMap<String, String> params = new HashMap<>();
-        params.put("userMobile",userMobile);
+        params.put("userMobile", userMobile);
         return ConnectHttp.getUnionAPI().getAuthCode(dataProcess(params));
     }
 
     /**
      * 登录
+     *
      * @param userMobile 手机号
      * @param authCode   验证码
      * @return
      */
     public static Observable<LoginData> login(String userMobile, String authCode) {
         HashMap<String, String> params = new HashMap<>();
-        params.put("userMobile",userMobile);
-        params.put("authCode",authCode);
+        params.put("userMobile", userMobile);
+        params.put("authCode", authCode);
         params.put("imei", MobileConfigUtil.getMacCode());
         return ConnectHttp.getUnionAPI().login(dataProcess(params));
     }
 
     /**
+     * 获取TIM sig
+     *
+     * @return
+     */
+    public static Observable<TIMSigData> getTIMSig(String token, String identifier) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("token", token);
+        params.put("identifier", identifier);
+        return ConnectHttp.getUnionAPI().getTIMSig(dataProcess(params));
+    }
+
+    /**
      * 获取用户信息
+     *
      * @return
      */
     public static Observable<UserInfoData> getUserInfo(String token) {
         HashMap<String, String> params = new HashMap<>();
-        params.put("token",token);
+        params.put("token", token);
         return ConnectHttp.getUnionAPI().getUserInfo(dataProcess(params));
     }
 
 
     /**
      * 获取首页列表
+     *
      * @return
      */
-    public static Observable<HomeListData> getHomeList(String token , String longitude, String latitude) {
+    public static Observable<HomeListData> getHomeList(String token, String longitude, String latitude) {
         HashMap<String, String> params = new HashMap<>();
-        params.put("token",token);
-        params.put("imei",MobileConfigUtil.getMacCode());
-        params.put("longitude",longitude);
-        params.put("latitude",latitude);
+        params.put("token", token);
+        params.put("imei", MobileConfigUtil.getMacCode());
+        params.put("longitude", longitude);
+        params.put("latitude", latitude);
         return ConnectHttp.getUnionAPI().getHomeList(dataProcess(params));
+    }
+
+
+    /**
+     * 获取医生详细信息
+     *
+     * @return
+     */
+    public static Observable<DoctorInfoData> getDoctorInfo(String doctId, String longitude, String latitude) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("doctId", doctId);
+        params.put("longitude", longitude);
+        params.put("latitude", latitude);
+        params.put("pageNo", "1");
+        return ConnectHttp.getUnionAPI().getDoctorInfo(dataProcess(params));
     }
 
 }

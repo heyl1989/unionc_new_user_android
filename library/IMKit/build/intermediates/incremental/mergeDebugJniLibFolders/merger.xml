@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="D:\AndroidStudioProjects\unionc_new_user_android\library\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="debug"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\IMKit\src\debug\jniLibs"/></dataSet></merger>

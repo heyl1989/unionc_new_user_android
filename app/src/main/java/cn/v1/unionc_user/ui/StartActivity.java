@@ -2,10 +2,21 @@ package cn.v1.unionc_user.ui;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.RelativeLayout;
-import butterknife.Bind;
+import android.text.TextUtils;
+
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMManager;
+
 import butterknife.ButterKnife;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.data.Common;
+import cn.v1.unionc_user.data.SPUtil;
+import cn.v1.unionc_user.model.LoginData;
+import cn.v1.unionc_user.model.TIMSigData;
+import cn.v1.unionc_user.network_frame.ConnectHttp;
+import cn.v1.unionc_user.network_frame.UnionAPIPackage;
+import cn.v1.unionc_user.network_frame.core.BaseObserver;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 
 public class StartActivity extends BaseActivity {
@@ -27,7 +38,7 @@ public class StartActivity extends BaseActivity {
                 goNewActivity(MainActivity.class);
                 finish();
             }
-        },2000);
+        }, 2000);
     }
 
     @Override
@@ -35,4 +46,5 @@ public class StartActivity extends BaseActivity {
         super.onDestroy();
         handler.removeCallbacksAndMessages(null);
     }
+
 }

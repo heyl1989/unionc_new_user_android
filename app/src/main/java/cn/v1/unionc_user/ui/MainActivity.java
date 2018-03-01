@@ -2,19 +2,11 @@ package cn.v1.unionc_user.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.amap.api.location.AMapLocation;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,7 +14,7 @@ import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 import cn.v1.unionc_user.ui.discover.DiscoverFragment;
 import cn.v1.unionc_user.ui.me.PersonalFragment;
-import cn.v1.unionc_user.ui.message.MessageFragment;
+import cn.v1.unionc_user.ui.home.MessageFragment;
 
 public class MainActivity extends BaseActivity {
 

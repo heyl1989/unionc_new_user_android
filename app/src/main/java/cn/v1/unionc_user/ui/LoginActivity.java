@@ -10,12 +10,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMManager;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.model.BaseData;
 import cn.v1.unionc_user.model.LoginData;
+import cn.v1.unionc_user.model.TIMSigData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
 import cn.v1.unionc_user.network_frame.core.BaseObserver;
@@ -144,9 +149,49 @@ public class LoginActivity extends BaseActivity {
             public void onResponse(LoginData data) {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
-                    showTost("登录成功");
-                    login(data.getData().getToken());
-                    finish();
+                    getTIMSig(data.getData().getToken(),"sutao");
+                } else {
+                    showTost(data.getMessage());
+                }
+            }
+
+            @Override
+            public void onFail(Throwable e) {
+                closeDialog();
+                showTost("登录失败");
+            }
+        });
+    }
+
+    /**
+     * 获取TIM sig
+     */
+    private void getTIMSig(final String token, final String identifier){
+        showDialog("登录中...");
+        ConnectHttp.connect(UnionAPIPackage.getTIMSig(token, identifier), new BaseObserver<TIMSigData>(context) {
+
+            @Override
+            public void onResponse(TIMSigData data) {
+                closeDialog();
+                if (TextUtils.equals("4000", data.getCode())) {
+                    // identifier为用户名，userSig 为用户登录凭证
+                    TIMManager.getInstance().login(identifier, data.getData().getTls(), new TIMCallBack() {
+                        @Override
+                        public void onError(int code, String desc) {
+                            //错误码code和错误描述desc，可用于定位请求失败原因
+                            //错误码code列表请参见错误码表
+                            Logger.e("login failed. code: " + code + " errmsg: " + desc);
+                            showTost(desc+"");
+                        }
+
+                        @Override
+                        public void onSuccess() {
+                            Logger.d("login succ");
+                            showTost("登录成功");
+                            login(token);
+                            finish();
+                        }
+                    });
                 } else {
                     showTost(data.getMessage());
                 }

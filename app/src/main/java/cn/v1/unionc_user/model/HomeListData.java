@@ -53,26 +53,8 @@ public class HomeListData extends BaseData {
         }
 
         public static class HomeData {
-            /**
-             *
-             * type :
-             * clinicId : 50708
-             * clinicName : 小郊亭社区卫生服务站
-             * departName : 骨科
-             * distance : 2.0301
-             * doctorName : 45测试
-             * major : 100
-             * professLevel : 知名专家
-             */
 
-            private String type;
-            private String clinicId;
-            private String clinicName;
-            private String departName;
-            private String distance;
-            private String doctorName;
-            private String major;
-            private String professLevel;
+            private String type ;
 
             public String getType() {
                 return type;
@@ -81,6 +63,30 @@ public class HomeListData extends BaseData {
             public void setType(String type) {
                 this.type = type;
             }
+
+            /**
+             * clinicId : 50708
+             * clinicName : 小郊亭社区卫生服务站
+             * departName : 骨科
+             * distance : 2.03
+             * doctId : 45
+             * doctorName : 45测试
+             * identifier : JKmo8DOJ3PnrG9MYH5vjiRl/rpwJI/HuwBuOGzlt/ngAf0CRODjq2AgdozfansJ6kCfxC2fMLo2vYZXIG2QOFFP1TB5QndgA
+             * imagePath : http://192.168.11.216:8080/unionWeb/image/webServer/compress/43/2/4/479ba869-eb04-4a1d-b914-96990b9b6108_Chrysanthemum.jpg
+             * major : 100
+             * professLevel : 知名专家
+             */
+
+            private String clinicId;
+            private String clinicName;
+            private String departName;
+            private String distance;
+            private String doctId;
+            private String doctorName;
+            private String identifier;
+            private String imagePath;
+            private String major;
+            private String professLevel;
 
             public String getClinicId() {
                 return clinicId;
@@ -114,12 +120,36 @@ public class HomeListData extends BaseData {
                 this.distance = distance;
             }
 
+            public String getDoctId() {
+                return doctId;
+            }
+
+            public void setDoctId(String doctId) {
+                this.doctId = doctId;
+            }
+
             public String getDoctorName() {
                 return doctorName;
             }
 
             public void setDoctorName(String doctorName) {
                 this.doctorName = doctorName;
+            }
+
+            public String getIdentifier() {
+                return identifier;
+            }
+
+            public void setIdentifier(String identifier) {
+                this.identifier = identifier;
+            }
+
+            public String getImagePath() {
+                return imagePath;
+            }
+
+            public void setImagePath(String imagePath) {
+                this.imagePath = imagePath;
             }
 
             public String getMajor() {

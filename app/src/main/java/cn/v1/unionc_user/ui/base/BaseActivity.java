@@ -1,25 +1,24 @@
 package cn.v1.unionc_user.ui.base;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMManager;
 
 import cn.v1.unionc_user.data.Common;
 import cn.v1.unionc_user.data.SPUtil;
-import cn.v1.unionc_user.model.RongTokenData;
-import cn.v1.unionc_user.network_frame.ConnectHttp;
-import cn.v1.unionc_user.network_frame.RongAPIPackage;
-import cn.v1.unionc_user.network_frame.core.BaseObserver;
-import io.rong.imlib.RongIMClient;
-
-import static io.rong.imkit.utils.SystemUtils.getCurProcessName;
+import cn.v1.unionc_user.tecent_qcloud.TIMUserStatusListener;
+import cn.v1.unionc_user.tecent_qcloud.UserConfig;
+import cn.v1.unionc_user.ui.LoginActivity;
 
 /**
  * Created by qy on 2018/2/1.
@@ -34,7 +33,25 @@ public class BaseActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        initTIMUserStatusListener();
         context = this;
+    }
+
+    /**
+     * 监听用户状态
+     */
+    private void initTIMUserStatusListener() {
+        UserConfig.setOnUserStatusChangeListener(new com.tencent.imsdk.TIMUserStatusListener() {
+            @Override
+            public void onForceOffline() {
+                goNewActivity(LoginActivity.class);
+            }
+
+            @Override
+            public void onUserSigExpired() {
+                goNewActivity(LoginActivity.class);
+            }
+        });
     }
 
     /**
@@ -77,6 +94,21 @@ public class BaseActivity extends FragmentActivity {
      */
     protected void logout() {
         SPUtil.remove(context, Common.USER_TOKEN);
+        //登出
+        TIMManager.getInstance().logout(new TIMCallBack() {
+            @Override
+            public void onError(int code, String desc) {
+
+                //错误码code和错误描述desc，可用于定位请求失败原因
+                //错误码code列表请参见错误码表
+                Logger.e("logout failed. code: " + code + " errmsg: " + desc);
+            }
+
+            @Override
+            public void onSuccess() {
+                //登出成功
+            }
+        });
     }
 
 
@@ -110,85 +142,6 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    /**
-     * 获取融云Token
-     *
-     * @return rongToken
-     */
-    protected String getRongToken() {
-        String rongToken = "";
-        ConnectHttp.connect(RongAPIPackage.getRongToken("client", "", ""), new BaseObserver<RongTokenData>(context) {
-            @Override
-            public void onResponse(RongTokenData rongTokenData) {
-                connect(rongTokenData.getToken());
-            }
-
-            @Override
-            public void onFail(Throwable e) {
-                rongConnectFailure();
-            }
-        });
-
-        return rongToken;
-    }
-
-    /**
-     * 连接融云服务器
-     *
-     * @param token
-     */
-    private void connect(String token) {
-
-        if (getApplicationInfo().packageName.equals(getCurProcessName(getApplicationContext()))) {
-
-            RongIMClient.connect(token, new RongIMClient.ConnectCallback() {
-
-                /**
-                 * Token 错误。可以从下面两点检查 1.  Token 是否过期，如果过期您需要向 App Server 重新请求一个新的 Token
-                 *                            2.  token 对应的 appKey 和工程里设置的 appKey 是否一致
-                 */
-                @Override
-                public void onTokenIncorrect() {
-                    rongConnectFailure();
-                }
-
-                /**
-                 * 连接融云成功
-                 * @param userid 当前 token 对应的用户 id
-                 */
-                @Override
-                public void onSuccess(String userid) {
-                    rongConnectSuccessed(userid);
-                }
-
-                /**
-                 * 连接融云失败
-                 * @param errorCode 错误码，可到官网 查看错误码对应的注释
-                 */
-                @Override
-                public void onError(RongIMClient.ErrorCode errorCode) {
-                    rongConnectFailure();
-                }
-            });
-        }
-    }
-
-    /**
-     * 融云连接成功
-     *
-     * @param userId
-     */
-    protected void rongConnectSuccessed(String userId) {
-    }
-
-    /**
-     * 融云连接失败
-     */
-    protected void rongConnectFailure() {
-        showTost("融云连接失败");
-    }
-
-
     protected Bundle outState;
 
     @Override
@@ -196,4 +149,6 @@ public class BaseActivity extends FragmentActivity {
         this.outState = outState;
         super.onSaveInstanceState(outState);
     }
+
+
 }

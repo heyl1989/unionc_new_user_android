@@ -3,3 +3,4 @@
 - 仿IOS时间滚轮参考[https://github.com/heyl1989/Android-PickerView](https://github.com/heyl1989/Android-PickerView)
 - 联系人选择[https://github.com/heyl1989/WaveSideBar](https://github.com/heyl1989/WaveSideBar)<br>
 - 日志管理[https://github.com/orhanobut/logger](https://github.com/orhanobut/logger)
+- 标签控件[https://github.com/heyl1989/LabelsView](https://github.com/heyl1989/LabelsView)

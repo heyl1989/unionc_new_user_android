@@ -25,6 +25,15 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!-- 调用相机权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
     <application
         android:name=".UnioncApp"
@@ -43,17 +52,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity" />
-        <!-- 融云接受消息推送的广播 -->
-        <receiver
-            android:name=".receiver.UnioncNotifacationReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
-                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
-                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
-                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
-            </intent-filter>
-        </receiver>
 
         <!-- 高德地图定位功能 -->
         <meta-data
@@ -62,11 +60,61 @@
 
         <service android:name="com.amap.api.location.APSService" />
         <!-- 高德定位功能完 -->
-        <activity android:name=".ui.message.CaptureActivity" />
+        <activity android:name=".ui.home.CaptureActivity" />
         <activity android:name=".ui.ContactsActivity" />
         <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.message.HealthClassActivity" />
-        <activity android:name=".ui.message.HealthClassDetailActivity"></activity>
+        <activity android:name=".ui.home.HealthClassActivity" />
+        <activity android:name=".ui.home.HealthClassDetailActivity" />
+        <activity android:name=".ui.home.HospitalDetailActivity" />
+        <activity android:name=".ui.home.DoctorDetailActivity" />
+        <activity android:name=".ui.home.LocationUpdateActivity"
+            android:theme="@style/Dialog"
+            ></activity>
+
+        <!--腾讯IM-->
+        <!-- 【必须】消息收发service -->
+        <service
+            android:name="com.tencent.qalsdk.service.QalService"
+            android:exported="true"
+            android:process=":QALSERVICE" >
+        </service>
+        <service
+            android:name="com.tencent.qalsdk.service.QalAssistService"
+            android:exported="false"
+            android:process=":QALSERVICE" >
+        </service>
+
+        <!-- 【必须】 离线消息广播接收器 -->
+        <receiver
+            android:name="com.tencent.qalsdk.QALBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.qalsdk.broadcast.qal" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter" android:process=":QALSERVICE">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+
+            <!-- ImSDK 3.0.2 后添加 -->
+            <intent-filter>
+                <action android:name="com.tencent.qalsdk.service.TASK_REMOVED" />
+            </intent-filter>
+        </receiver>
+
+        <!--腾讯IM完-->
+
     </application>
 
 </manifest>

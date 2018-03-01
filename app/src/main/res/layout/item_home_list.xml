@@ -15,7 +15,7 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <cn.v1.unionc_user.view.CircleImageView
             android:id="@+id/img_message_avator"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -54,10 +54,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_message_name"
                 android:layout_marginTop="6dp"
-                android:lines="2"
+                android:maxLines="2"
                 android:lineSpacingExtra="3dp"
                 android:ellipsize="end"
-                tools:text="最近经常发低烧，还腹泻，怎么回事？"
+                tools:text="最近经常发低烧，还腹泻，怎么回事？怎么回事？"
                 android:textColor="@color/detail_text"
                 android:textSize="14dp" />
 
