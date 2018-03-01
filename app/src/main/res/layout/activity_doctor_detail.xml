@@ -114,6 +114,7 @@
                     android:paddingTop="10dp">
 
                     <LinearLayout
+                        android:id="@+id/ll_message"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:layout_weight="1"
@@ -140,6 +141,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:layout_marginLeft="10dp"

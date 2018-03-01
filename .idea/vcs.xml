@@ -4,7 +4,8 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/library/TIM_PRESENTATION" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/library/Tecent_IM_SDK" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/library/TIM_SDK" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/library/TIM_UI" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/library/labels" vcs="svn" />
   </component>
 </project>

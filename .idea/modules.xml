@@ -3,11 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/library/TIM_PRESENTATION/TIM_PRESENTATION.iml" filepath="$PROJECT_DIR$/library/TIM_PRESENTATION/TIM_PRESENTATION.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/TIM_SDK/Tecent_IM_SDK.iml" filepath="$PROJECT_DIR$/library/TIM_SDK/Tecent_IM_SDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/TIM_UI/ui.iml" filepath="$PROJECT_DIR$/library/TIM_UI/ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/TIM_SDK/TIM_SDK.iml" filepath="$PROJECT_DIR$/library/TIM_SDK/TIM_SDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/TIM_UI/TIM_UI.iml" filepath="$PROJECT_DIR$/library/TIM_UI/TIM_UI.iml" />
+      <module fileurl="file://D:\AndroidStudioProjects\unionc_new_user_android\library\TIM_SDK\Tecent_IM_SDK.iml" filepath="D:\AndroidStudioProjects\unionc_new_user_android\library\TIM_SDK\Tecent_IM_SDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/labels/labels.iml" filepath="$PROJECT_DIR$/library/labels/labels.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://D:\AndroidStudioProjects\unionc_new_user_android\library\TIM_UI\ui.iml" filepath="D:\AndroidStudioProjects\unionc_new_user_android\library\TIM_UI\ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/unionc_new_user_android.iml" filepath="$PROJECT_DIR$/unionc_new_user_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/wavesidebar/wavesidebar.iml" filepath="$PROJECT_DIR$/library/wavesidebar/wavesidebar.iml" />
     </modules>

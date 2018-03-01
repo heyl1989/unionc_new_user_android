@@ -17,6 +17,7 @@ import com.amap.api.location.AMapLocation;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.squareup.otto.Subscribe;
+import com.tencent.imsdk.TIMConversationType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ import cn.v1.unionc_user.model.LocationUpdateEventData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
 import cn.v1.unionc_user.network_frame.core.BaseObserver;
+import cn.v1.unionc_user.tecent_qcloud.TIMChatActivity;
 import cn.v1.unionc_user.ui.adapter.HomeListAdapter;
 import cn.v1.unionc_user.ui.base.BaseFragment;
 import cn.v1.unionc_user.utils.Location;
@@ -120,6 +122,7 @@ public class MessageFragment extends BaseFragment {
                 goNewActivity(HospitalDetailActivity.class);
                 break;
             case R.id.tv_yihu:
+                TIMChatActivity.navToChat(context,"sutao", TIMConversationType.C2C);
                 break;
             case R.id.tv_health:
                 goNewActivity(HealthClassActivity.class);

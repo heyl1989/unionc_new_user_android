@@ -34,7 +34,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <application
         android:name=".UnioncApp"
         android:allowBackup="true"
@@ -67,22 +66,20 @@
         <activity android:name=".ui.home.HealthClassDetailActivity" />
         <activity android:name=".ui.home.HospitalDetailActivity" />
         <activity android:name=".ui.home.DoctorDetailActivity" />
-        <activity android:name=".ui.home.LocationUpdateActivity"
-            android:theme="@style/Dialog"
-            ></activity>
+        <activity
+            android:name=".ui.home.LocationUpdateActivity"
+            android:theme="@style/Dialog" />
 
-        <!--腾讯IM-->
+        <!-- 腾讯IM -->
         <!-- 【必须】消息收发service -->
         <service
             android:name="com.tencent.qalsdk.service.QalService"
             android:exported="true"
-            android:process=":QALSERVICE" >
-        </service>
+            android:process=":QALSERVICE" />
         <service
             android:name="com.tencent.qalsdk.service.QalAssistService"
             android:exported="false"
-            android:process=":QALSERVICE" >
-        </service>
+            android:process=":QALSERVICE" />
 
         <!-- 【必须】 离线消息广播接收器 -->
         <receiver
@@ -93,7 +90,8 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.tencent.qalsdk.core.NetConnInfoCenter" android:process=":QALSERVICE">
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
+            android:process=":QALSERVICE">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -113,8 +111,15 @@
             </intent-filter>
         </receiver>
 
-        <!--腾讯IM完-->
+        <!-- 腾讯IM完 -->
 
+        <activity android:name=".tecent_qcloud.TIMChatActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity android:name=".tecent_qcloud.VideoActivity" />
+        <activity android:name=".tecent_qcloud.ImagePreviewActivity" />
+        <activity android:name=".tecent_qcloud.ImageViewActivity"></activity>
     </application>
 
 </manifest>

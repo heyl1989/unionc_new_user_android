@@ -75,13 +75,18 @@ public class DoctorDetailActivity extends BaseActivity {
         initData();
     }
 
-    @OnClick({R.id.img_back, R.id.img_share})
+    @OnClick({R.id.img_back, R.id.img_share, R.id.ll_message, R.id.ll_phone})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_back:
                 finish();
                 break;
             case R.id.img_share:
+                break;
+            case R.id.ll_message:
+
+                break;
+            case R.id.ll_phone:
                 break;
         }
     }
@@ -184,7 +189,7 @@ public class DoctorDetailActivity extends BaseActivity {
         Glide.with(context).load(doctorsData.getImagePath()).into(imgDoctorAvator);
         tvDoctorName.setText(doctorsData.getDoctorName() + "");
         tvDepartment.setText(doctorsData.getDepartName() + "  " + doctorsData.getProfessLevel());
-        tvHospital.setText(doctorsData.getFirstClinicName()+"");
+        tvHospital.setText(doctorsData.getFirstClinicName() + "");
     }
 
 
@@ -205,10 +210,6 @@ public class DoctorDetailActivity extends BaseActivity {
         public void onTabReselected(TabLayout.Tab tab) {
         }
     };
-
-    @OnClick(R.id.tv_open)
-    public void onClick() {
-    }
 
     class DoctorDetailPageAdapter extends FragmentPagerAdapter {
 
