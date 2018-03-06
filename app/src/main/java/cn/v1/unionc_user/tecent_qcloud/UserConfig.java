@@ -19,10 +19,14 @@ import java.util.List;
 
 public class UserConfig {
 
-    private static String tag = "TIMUserConfig";
-    private static TIMUserStatusListener mTimUserStatusListener;
+    private String tag = "TIMUserConfig";
+    private TIMUserStatusListener mTimUserStatusListener;
 
-    public static void init() {
+    public UserConfig() {
+        init();
+    }
+
+    private void init() {
         //基本用户配置
         TIMUserConfig userConfig = new TIMUserConfig()
                 //设置群组资料拉取字段
@@ -35,7 +39,7 @@ public class UserConfig {
                     public void onForceOffline() {
                         //被其他终端踢下线
                         Log.i(tag, "onForceOffline");
-                        if(null != mTimUserStatusListener){
+                        if (null != mTimUserStatusListener) {
                             mTimUserStatusListener.onForceOffline();
                         }
                     }
@@ -44,7 +48,7 @@ public class UserConfig {
                     public void onUserSigExpired() {
                         //用户签名过期了，需要刷新userSig重新登录SDK
                         Log.i(tag, "onUserSigExpired");
-                        if(null != mTimUserStatusListener){
+                        if (null != mTimUserStatusListener) {
                             mTimUserStatusListener.onUserSigExpired();
                         }
                     }
@@ -91,8 +95,8 @@ public class UserConfig {
     }
 
 
-    public static void setOnUserStatusChangeListener(TIMUserStatusListener timUserStatusListener) {
-        mTimUserStatusListener = timUserStatusListener;
+    public void setOnUserStatusChangeListener(TIMUserStatusListener timUserStatusListener) {
+        this.mTimUserStatusListener = timUserStatusListener;
     }
 
 }

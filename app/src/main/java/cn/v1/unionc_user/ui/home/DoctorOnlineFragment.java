@@ -2,6 +2,7 @@ package cn.v1.unionc_user.ui.home;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,4 +38,8 @@ public class DoctorOnlineFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_doctor_online, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 }

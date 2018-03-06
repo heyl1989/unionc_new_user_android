@@ -19,6 +19,8 @@ public class Common {
     public static final String KEY_UUID = "uuid";
 
     public static final String USER_TOKEN = "userToken";
+    public static final String TIM_SIG = "timSig";
+    public static final String IDENTIFIER = "identifier";
 
     public static final String LONGITUDE = "longitude";
     public static final String LATITUDE = "latitude";

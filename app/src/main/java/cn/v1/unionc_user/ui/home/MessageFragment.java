@@ -1,7 +1,11 @@
 package cn.v1.unionc_user.ui.home;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
@@ -31,6 +36,7 @@ import cn.v1.unionc_user.data.Common;
 import cn.v1.unionc_user.data.SPUtil;
 import cn.v1.unionc_user.model.HomeListData;
 import cn.v1.unionc_user.model.LocationUpdateEventData;
+import cn.v1.unionc_user.model.LoginUpdateEventData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
 import cn.v1.unionc_user.network_frame.core.BaseObserver;
@@ -66,6 +72,10 @@ public class MessageFragment extends BaseFragment {
     TextView tvHealth;
     @Bind(R.id.main_recycleview)
     RecyclerView mainRecycleview;
+    @Bind(R.id.tv_recommond)
+    TextView tvRecommond;
+    @Bind(R.id.rl_recommond)
+    RelativeLayout rlRecommond;
 
     private int[] imgs = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d};
     private HomeListAdapter homeListAdapter;
@@ -74,6 +84,7 @@ public class MessageFragment extends BaseFragment {
     private String longitude;
     private String latitude;
     private LocationDialog locationDialog;
+    private final int REQUEST_PHONE_PERMISSIONS = 0;
 
     public MessageFragment() {
         // Required empty public constructor
@@ -116,13 +127,21 @@ public class MessageFragment extends BaseFragment {
             case R.id.img_message:
                 break;
             case R.id.tv_saoma:
-                goNewActivity(CaptureActivity.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if ((context.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_PHONE_PERMISSIONS);
+                    } else {
+                        goNewActivity(CaptureActivity.class);
+                    }
+                } else {
+                    goNewActivity(CaptureActivity.class);
+                }
                 break;
             case R.id.tv_guahao:
                 goNewActivity(HospitalDetailActivity.class);
                 break;
             case R.id.tv_yihu:
-                TIMChatActivity.navToChat(context,"sutao", TIMConversationType.C2C);
+                TIMChatActivity.navToChat(context, "heyl", TIMConversationType.C2C);
                 break;
             case R.id.tv_health:
                 goNewActivity(HealthClassActivity.class);
@@ -130,7 +149,21 @@ public class MessageFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PHONE_PERMISSIONS:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    goNewActivity(CaptureActivity.class);
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
     private void initView() {
+        rlRecommond.setVisibility(View.GONE);
         List<View> viewList = new ArrayList<>();
         for (int i = 0; i < imgs.length; i++) {
             ImageView image = new ImageView(context);
@@ -156,6 +189,11 @@ public class MessageFragment extends BaseFragment {
         longitude = data.getLon() + "";
         SPUtil.put(context, Common.LONGITUDE, longitude);
         SPUtil.put(context, Common.LATITUDE, latitude);
+        getHomeList(longitude, latitude);
+    }
+
+    @Subscribe
+    public void subscribeUpdate(LoginUpdateEventData data) {
         getHomeList(longitude, latitude);
     }
 
@@ -220,6 +258,16 @@ public class MessageFragment extends BaseFragment {
             public void onResponse(HomeListData data) {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
+                    if (!isLogin()) {
+                        rlRecommond.setVisibility(View.VISIBLE);
+                    } else {
+                        if (data.getData().getSignedDoctros().size() != 0 ||
+                                data.getData().getAttendingDoctors().size() != 0) {
+                            rlRecommond.setVisibility(View.GONE);
+                        }else{
+                            rlRecommond.setVisibility(View.VISIBLE);
+                        }
+                    }
                     datas.clear();
                     if (data.getData().getRecommendDoctors().size() != 0) {
                         int index = datas.size();

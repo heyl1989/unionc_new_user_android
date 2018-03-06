@@ -16,14 +16,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.otto.Subscribe;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.v1.unionc_user.BusProvider;
 import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.data.Common;
 import cn.v1.unionc_user.data.SPUtil;
 import cn.v1.unionc_user.model.LoginData;
+import cn.v1.unionc_user.model.LoginUpdateEventData;
 import cn.v1.unionc_user.model.UserInfoData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
@@ -71,6 +74,17 @@ public class PersonalFragment extends BaseFragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        BusProvider.getInstance().register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        BusProvider.getInstance().unregister(this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -121,7 +135,10 @@ public class PersonalFragment extends BaseFragment {
                 break;
         }
     }
-
+    @Subscribe
+    public void subscribeUpdate(LoginUpdateEventData data) {
+        getUserInfo();
+    }
     /**
      * 获取用户信息
      */

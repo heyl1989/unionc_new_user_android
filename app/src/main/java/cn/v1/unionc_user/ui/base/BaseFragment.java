@@ -40,20 +40,12 @@ public class BaseFragment extends Fragment {
     }
 
     /**
-     * 登录
-     *
-     * @param token
-     */
-    protected void login(String token) {
-        SPUtil.put(context, Common.USER_TOKEN, (String) token);
-    }
-
-    /**
      * 是否登录
      */
     protected boolean isLogin() {
         return SPUtil.contains(context, Common.USER_TOKEN);
     }
+
 
     /**
      * 退出

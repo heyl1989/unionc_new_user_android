@@ -5,6 +5,16 @@
     android:orientation="vertical"
     tools:context="cn.v1.unionc_user.ui.home.DoctorAnswerFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="#F2F4F7"
+        android:gravity="center"
+        android:text="Ta回答的问题"
+        android:textColor="@color/detail_text"
+        android:textSize="14sp"
+        />
+
 
     <cn.v1.unionc_user.view.ScrollListView
         android:id="@+id/listView"

@@ -17,9 +17,13 @@ import com.tencent.imsdk.TIMManager;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.v1.unionc_user.BusProvider;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.data.Common;
+import cn.v1.unionc_user.data.SPUtil;
 import cn.v1.unionc_user.model.BaseData;
 import cn.v1.unionc_user.model.LoginData;
+import cn.v1.unionc_user.model.LoginUpdateEventData;
 import cn.v1.unionc_user.model.TIMSigData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
@@ -44,6 +48,7 @@ public class LoginActivity extends BaseActivity {
 
     private boolean runningThree;
     private boolean isCheckAgreement;
+    private String from;
 
 
     @Override
@@ -51,7 +56,14 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        initData();
         initView();
+    }
+
+    private void initData() {
+        if(getIntent().hasExtra("from")){
+            from = getIntent().getStringExtra("from");
+        }
     }
 
     @OnClick({R.id.img_back, R.id.tv_code, R.id.tv_login, R.id.img_check_agreement, R.id.tv_agreement})
@@ -83,7 +95,7 @@ public class LoginActivity extends BaseActivity {
                     showTost("请填写验证码");
                     return;
                 }
-                if(!isCheckAgreement){
+                if (!isCheckAgreement) {
                     showTost("请同意用户协议");
                     return;
                 }
@@ -138,6 +150,7 @@ public class LoginActivity extends BaseActivity {
 
     /**
      * 登录
+     *
      * @param phoneNumber
      * @param authCode
      */
@@ -149,7 +162,8 @@ public class LoginActivity extends BaseActivity {
             public void onResponse(LoginData data) {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
-                    getTIMSig(data.getData().getToken(),"sutao");
+                    SPUtil.put(context,Common.IDENTIFIER,"sutao");
+                    getTIMSig(data.getData().getToken(), "sutao");
                 } else {
                     showTost(data.getMessage());
                 }
@@ -166,7 +180,7 @@ public class LoginActivity extends BaseActivity {
     /**
      * 获取TIM sig
      */
-    private void getTIMSig(final String token, final String identifier){
+    private void getTIMSig(final String token, final String identifier) {
         showDialog("登录中...");
         ConnectHttp.connect(UnionAPIPackage.getTIMSig(token, identifier), new BaseObserver<TIMSigData>(context) {
 
@@ -175,20 +189,27 @@ public class LoginActivity extends BaseActivity {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
                     // identifier为用户名，userSig 为用户登录凭证
+                    SPUtil.put(context, Common.TIM_SIG, data.getData().getTls());
+                    initTIMUserConfig();
                     TIMManager.getInstance().login(identifier, data.getData().getTls(), new TIMCallBack() {
                         @Override
                         public void onError(int code, String desc) {
                             //错误码code和错误描述desc，可用于定位请求失败原因
                             //错误码code列表请参见错误码表
                             Logger.e("login failed. code: " + code + " errmsg: " + desc);
-                            showTost(desc+"");
+                            showTost(desc + "");
                         }
 
                         @Override
                         public void onSuccess() {
                             Logger.d("login succ");
                             showTost("登录成功");
+                            if(TextUtils.equals("start",from)){
+                                goNewActivity(MainActivity.class);
+                            }
                             login(token);
+                            //通知首页和我的页面刷新数据
+                            BusProvider.getInstance().post(new LoginUpdateEventData(true));
                             finish();
                         }
                     });

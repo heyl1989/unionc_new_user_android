@@ -377,7 +377,9 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
      */
     @Override
     public void cancelSendVoice() {
-
+        voiceSendingView.release();
+        voiceSendingView.setVisibility(View.GONE);
+        recorder.stopRecording();
     }
 
     /**

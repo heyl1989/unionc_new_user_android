@@ -39,6 +39,36 @@
     <option name="suppComments" value="[]" />
   </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/library/TIM_PRESENTATION">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/branches" />
+                  <option value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/library/labels">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/branches" />
+                  <option value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="http://svn.betrich.com/svn/cp/LotteryDev6/HealthCareO2O/android/HealthCareO2OForProvider/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="masterDetails">

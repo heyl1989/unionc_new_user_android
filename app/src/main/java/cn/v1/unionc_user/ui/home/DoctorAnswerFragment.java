@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.ui.adapter.DoctorAnswerAdapter;
 import cn.v1.unionc_user.ui.adapter.HospitalDoctorAdapter;
 import cn.v1.unionc_user.ui.base.BaseFragment;
 import cn.v1.unionc_user.view.ScrollListView;
@@ -50,8 +51,8 @@ public class DoctorAnswerFragment extends BaseFragment {
 
     private void initView() {
         listView.setFocusable(false);
-        HospitalDoctorAdapter hospitalDoctorAdapter = new HospitalDoctorAdapter(context);
-        listView.setAdapter(hospitalDoctorAdapter);
+        DoctorAnswerAdapter doctorAnswerAdapter = new DoctorAnswerAdapter(context);
+        listView.setAdapter(doctorAnswerAdapter);
     }
 
     @Override

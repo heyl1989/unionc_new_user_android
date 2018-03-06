@@ -154,6 +154,7 @@ public class LocationUpdateActivity extends BaseActivity {
                         datas.add(poidata);
                     }
                     poiAdapter.setData(datas);
+                    recycleView.scrollToPosition(0);
                 }
 
             }
@@ -179,6 +180,7 @@ public class LocationUpdateActivity extends BaseActivity {
                             datas.add(poidata);
                         }
                         poiAdapter.setData(datas);
+                        recycleView.scrollToPosition(0);
                     } else {
                         datas.clear();
                         poiAdapter.setData(datas);
