@@ -117,6 +117,12 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                 holder.tvMessageName.setText(homeData.getIdentifier() + "");
                 holder.tvDescribe.setText(homeData.getLastMessage().getSummary() + "");
                 holder.tvTime.setText(homeData.getLasttime() + "");
+                if (!TextUtils.isEmpty(homeData.getUnReadMessage())) {
+                    holder.tvUnread.setVisibility(View.VISIBLE);
+                    holder.tvUnread.setText(homeData.getUnReadMessage() + "");
+                } else {
+                    holder.tvUnread.setVisibility(View.GONE);
+                }
             } catch (Exception e) {
 
             }
@@ -163,6 +169,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         TextView tvDescribe;
         @Bind(R.id.tv_time)
         TextView tvTime;
+        @Bind(R.id.tv_unread)
+        TextView tvUnread;
 
         ViewHolder(View view) {
             super(view);

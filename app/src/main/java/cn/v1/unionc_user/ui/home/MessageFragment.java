@@ -38,6 +38,7 @@ import com.tencent.imsdk.ext.message.TIMManagerExt;
 import com.tencent.qcloud.presentation.viewfeatures.ConversationView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import butterknife.Bind;
@@ -199,7 +200,18 @@ public class MessageFragment extends BaseFragment {
         TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
             @Override
             public boolean onNewMessages(List<TIMMessage> list) {
-                Logger.d("TIMMessage_list");
+
+                Iterator<HomeListData.DataData.HomeData> it = datas.iterator();
+                while (it.hasNext()) {
+                    String type = it.next().getType();
+                    if (TextUtils.equals(Common.CONVERSATIONS, type)) {
+                        it.remove();
+                    }
+                }
+                getCoversationList();
+                datas.addAll(newConversations);
+                Logger.d(new Gson().toJson(datas));
+                homeListAdapter.notifyDataSetChanged();
                 return false;
             }
         });
@@ -316,37 +328,19 @@ public class MessageFragment extends BaseFragment {
                             datas.add(data.getData().getAttendingDoctors().get(i));
                             datas.get(index + i).setType(Common.ATTENDING_DOCTORS);
                         }
-
                     }
-                    //获取会话列表
-                    if (isLogin()) {
-                        newConversations.clear();
-                        int index = datas.size();
-                        List<TIMConversation> conversations = TIMManagerExt.getInstance().getConversationList();
-                        Logger.e(new Gson().toJson(conversations));
-                        for (int i = 0; i < conversations.size(); i++) {
-                            if (TIMConversationType.System != conversations.get(i).getType()) {
-                                List<TIMMessage> timMessages = new TIMConversationExt(conversations.get(i)).getLastMsgs(10);
-                                Logger.e(new Gson().toJson(timMessages.get(0)));
-                                HomeListData.DataData.HomeData homeData = new HomeListData.DataData.HomeData();
-                                homeData.setIdentifier(conversations.get(i).getPeer());
-                                homeData.setLastMessage(MessageFactory.getMessage(timMessages.get(0)));
-                                homeData.setLasttime(TimeUtil.getTimeStr(timMessages.get(0).timestamp()) + "");
-                                newConversations.add(homeData);
-                                newConversations.get(i).setType(Common.CONVERSATIONS);
+                    getCoversationList();
+                    for (int i = 0; i < newConversations.size(); i++) {
+                        String conversationIdentifier = newConversations.get(i).getIdentifier();
+                        Iterator<HomeListData.DataData.HomeData> it = datas.iterator();
+                        while (it.hasNext()) {
+                            String datasIdentifier = it.next().getIdentifier();
+                            if (TextUtils.equals(conversationIdentifier, datasIdentifier)) {
+                                it.remove();
                             }
                         }
-                        for (int i = 0; i < newConversations.size(); i++) {
-                            for (int j = 0; j < datas.size(); j++) {
-                                String conversationIdentifier = newConversations.get(i).getIdentifier();
-                                String datasIdentifier = datas.get(j).getIdentifier();
-                                if(TextUtils.equals(conversationIdentifier,datasIdentifier)){
-                                    datas.remove(j);
-                                }
-                            }
-                        }
-                        datas.addAll(newConversations);
                     }
+                    datas.addAll(newConversations);
                     homeListAdapter.setData(datas);
                     Logger.json(new Gson().toJson(datas));
                 } else {
@@ -361,6 +355,35 @@ public class MessageFragment extends BaseFragment {
         });
 
     }
+
+    private void getCoversationList() {
+        //获取会话列表
+        if (isLogin()) {
+            newConversations.clear();
+            List<TIMConversation> conversations = TIMManagerExt.getInstance().getConversationList();
+            Logger.e(new Gson().toJson(conversations));
+            for (int i = 0; i < conversations.size(); i++) {
+                if (TIMConversationType.System != conversations.get(i).getType()) {
+                    TIMConversationExt conExt = new TIMConversationExt(conversations.get(i));
+                    List<TIMMessage> timMessages = conExt.getLastMsgs(10);
+                    Logger.e(new Gson().toJson(timMessages.get(0)));
+                    //获取会话未读数
+                    long num = conExt.getUnreadMessageNum();
+                    HomeListData.DataData.HomeData homeData = new HomeListData.DataData.HomeData();
+                    homeData.setIdentifier(conversations.get(i).getPeer());
+                    homeData.setLastMessage(MessageFactory.getMessage(timMessages.get(0)));
+                    homeData.setLasttime(TimeUtil.getTimeStr(timMessages.get(0).timestamp()) + "");
+                    homeData.setType(Common.CONVERSATIONS);
+                    if (0 != num) {
+                        homeData.setUnReadMessage(num + "");
+                    }
+                    newConversations.add(homeData);
+                }
+            }
+
+        }
+    }
+
 
     @Override
     public void onDestroyView() {

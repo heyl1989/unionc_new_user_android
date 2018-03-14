@@ -72,6 +72,22 @@
                 android:textSize="14dp"
                 tools:text="下午13:09" />
 
+            <TextView
+                android:id="@+id/tv_unread"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_time"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:background="@drawable/bg_red_circle"
+                android:text="232"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="gone"
+                />
+
         </RelativeLayout>
 
     </LinearLayout>

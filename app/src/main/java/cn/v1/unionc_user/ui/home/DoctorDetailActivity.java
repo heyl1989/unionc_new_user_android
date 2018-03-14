@@ -128,8 +128,8 @@ public class DoctorDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_detail);
         ButterKnife.bind(this);
-        initData();
         initView();
+        initData();
         initBottomSheet();
 
     }

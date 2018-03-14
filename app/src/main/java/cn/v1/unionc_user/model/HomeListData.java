@@ -86,6 +86,16 @@ public class HomeListData extends BaseData {
                 this.lasttime = lasttime;
             }
 
+            private String unReadMessage;
+
+            public String getUnReadMessage() {
+                return unReadMessage;
+            }
+
+            public void setUnReadMessage(String unReadMessage) {
+                this.unReadMessage = unReadMessage;
+            }
+
             /**
              * clinicId : 50708
              * clinicName : 小郊亭社区卫生服务站
