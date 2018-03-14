@@ -88,6 +88,28 @@ public class BaseActivity extends FragmentActivity {
         return SPUtil.contains(context, Common.USER_TOKEN);
     }
 
+    /**
+     * 退出
+     */
+    protected void logout() {
+        SPUtil.remove(context, Common.USER_TOKEN);
+        //登出
+        TIMManager.getInstance().logout(new TIMCallBack() {
+            @Override
+            public void onError(int code, String desc) {
+
+                //错误码code和错误描述desc，可用于定位请求失败原因
+                //错误码code列表请参见错误码表
+                Logger.e("logout failed. code: " + code + " errmsg: " + desc);
+            }
+
+            @Override
+            public void onSuccess() {
+                //登出成功
+                Logger.d("logout success");
+            }
+        });
+    }
 
     /**
      * 跳转新的Activity

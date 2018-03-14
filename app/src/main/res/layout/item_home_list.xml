@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <cn.v1.unionc_user.view.CircleImageView
@@ -20,8 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="12dp"
-            tools:src="@drawable/icon_tab_me_select"
-            />
+            tools:src="@drawable/icon_tab_me_select" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -34,9 +33,11 @@
                 android:id="@+id/tv_message_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="就诊记录"
+                android:ellipsize="end"
+                android:maxLength="8"
                 android:textColor="@color/main_text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="就诊记录就诊记录就诊记录" />
 
             <TextView
                 android:id="@+id/tv_role"
@@ -44,9 +45,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_message_name"
                 android:layout_toRightOf="@id/tv_message_name"
-                tools:text="（家庭医生）"
                 android:textColor="@color/detail_text"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="（家庭医生）" />
 
             <TextView
                 android:id="@+id/tv_describe"
@@ -54,12 +55,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_message_name"
                 android:layout_marginTop="6dp"
-                android:maxLines="2"
-                android:lineSpacingExtra="3dp"
                 android:ellipsize="end"
-                tools:text="最近经常发低烧，还腹泻，怎么回事？怎么回事？"
+                android:lineSpacingExtra="3dp"
+                android:maxLines="2"
                 android:textColor="@color/detail_text"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                tools:text="最近经常发低烧，还腹泻，怎么回事？怎么回事？" />
 
             <TextView
                 android:id="@+id/tv_time"
@@ -67,9 +68,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_message_name"
                 android:layout_alignParentRight="true"
-                tools:text="下午13:09"
                 android:textColor="@color/detail_text"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                tools:text="下午13:09" />
 
         </RelativeLayout>
 

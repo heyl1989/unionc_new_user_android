@@ -10,7 +10,7 @@ public class DoctorInfoData extends BaseData {
 
 
     /**
-     * data : {"days":[{"ScheduleDate":"02-27","week":"星期二"},{"ScheduleDate":"02-28","week":"星期三"},{"ScheduleDate":"03-01","week":"星期四"},{"ScheduleDate":"03-02","week":"星期五"},{"ScheduleDate":"03-03","week":"星期六"},{"ScheduleDate":"03-04","week":"星期日"},{"ScheduleDate":"03-05","week":"星期一"}],"doctors":{"AUniress":"北京市,市辖区,东城区,锐创国际","ClinicName":"苏涛的测试医院 ","CollectionCount":"0","DepartName":"口腔科","Distance":"0.88","DoctId":"45","DoctorName":"苏涛1111","EvaluateCount":"0","FirstClinicName":"小郊亭社区卫生服务站","ImagePath":"http://192.168.11.216:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg","IsAttention":"0","IsRecom":"0","IsShare":"0","Latitude":"40.015698","Longitude":"116.491371","Major":"擅长","ProfessLevel":"知名专家","RecommendCount":"0","Remarks":"备注","Telphone":"0108888888"},"schedules":[]}
+     * data : {"doctors":{"AUniress":"北京市,市辖区,东城区,锐创国际","ClinicName":"苏涛的测试医院 ","CollectionCount":"0","DepartName":"口腔科","Distance":"0.88","DoctId":"45","DoctorName":"苏涛1111","EvaluateCount":"0","FirstClinicName":"小郊亭社区卫生服务站","ImagePath":"http://192.168.21.93:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg","IsAttention":"0","IsRecom":"0","IsShare":"0","Latitude":"40.015698","Longitude":"116.491371","Major":"擅长","ProfessLevel":"知名专家","RecommendCount":"0","Remarks":"备注","Telphone":"0108888888"},"familyDoctFlag":"1","questions":[{"PageView":"15","Question":"提问","QuestionId":"1"}]}
      */
 
     private DataData data;
@@ -25,14 +25,14 @@ public class DoctorInfoData extends BaseData {
 
     public static class DataData {
         /**
-         * days : [{"ScheduleDate":"02-27","week":"星期二"},{"ScheduleDate":"02-28","week":"星期三"},{"ScheduleDate":"03-01","week":"星期四"},{"ScheduleDate":"03-02","week":"星期五"},{"ScheduleDate":"03-03","week":"星期六"},{"ScheduleDate":"03-04","week":"星期日"},{"ScheduleDate":"03-05","week":"星期一"}]
-         * doctors : {"AUniress":"北京市,市辖区,东城区,锐创国际","ClinicName":"苏涛的测试医院 ","CollectionCount":"0","DepartName":"口腔科","Distance":"0.88","DoctId":"45","DoctorName":"苏涛1111","EvaluateCount":"0","FirstClinicName":"小郊亭社区卫生服务站","ImagePath":"http://192.168.11.216:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg","IsAttention":"0","IsRecom":"0","IsShare":"0","Latitude":"40.015698","Longitude":"116.491371","Major":"擅长","ProfessLevel":"知名专家","RecommendCount":"0","Remarks":"备注","Telphone":"0108888888"}
-         * schedules : []
+         * doctors : {"AUniress":"北京市,市辖区,东城区,锐创国际","ClinicName":"苏涛的测试医院 ","CollectionCount":"0","DepartName":"口腔科","Distance":"0.88","DoctId":"45","DoctorName":"苏涛1111","EvaluateCount":"0","FirstClinicName":"小郊亭社区卫生服务站","ImagePath":"http://192.168.21.93:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg","IsAttention":"0","IsRecom":"0","IsShare":"0","Latitude":"40.015698","Longitude":"116.491371","Major":"擅长","ProfessLevel":"知名专家","RecommendCount":"0","Remarks":"备注","Telphone":"0108888888"}
+         * familyDoctFlag : 1
+         * questions : [{"PageView":"15","Question":"提问","QuestionId":"1"}]
          */
 
         private DoctorsData doctors;
-        private List<DaysData> days;
-        private List<Schedules> schedules;
+        private String familyDoctFlag;
+        private List<QuestionsData> questions;
 
         public DoctorsData getDoctors() {
             return doctors;
@@ -42,20 +42,20 @@ public class DoctorInfoData extends BaseData {
             this.doctors = doctors;
         }
 
-        public List<DaysData> getDays() {
-            return days;
+        public String getFamilyDoctFlag() {
+            return familyDoctFlag;
         }
 
-        public void setDays(List<DaysData> days) {
-            this.days = days;
+        public void setFamilyDoctFlag(String familyDoctFlag) {
+            this.familyDoctFlag = familyDoctFlag;
         }
 
-        public List<Schedules> getSchedules() {
-            return schedules;
+        public List<QuestionsData> getQuestions() {
+            return questions;
         }
 
-        public void setSchedules(List<Schedules> schedules) {
-            this.schedules = schedules;
+        public void setQuestions(List<QuestionsData> questions) {
+            this.questions = questions;
         }
 
         public static class DoctorsData {
@@ -69,7 +69,7 @@ public class DoctorInfoData extends BaseData {
              * DoctorName : 苏涛1111
              * EvaluateCount : 0
              * FirstClinicName : 小郊亭社区卫生服务站
-             * ImagePath : http://192.168.11.216:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg
+             * ImagePath : http://192.168.21.93:8080/unionWeb/image/webServer/compress/68/12/0/952f4d8d-7832-4a7c-b7ee-97c19c27a598_u=3247990642,490396215&fm=27&gp=0.jpg
              * IsAttention : 0
              * IsRecom : 0
              * IsShare : 0
@@ -102,6 +102,15 @@ public class DoctorInfoData extends BaseData {
             private String RecommendCount;
             private String Remarks;
             private String Telphone;
+            private String Identifier;
+
+            public String getIdentifier() {
+                return Identifier;
+            }
+
+            public void setIdentifier(String identifier) {
+                Identifier = identifier;
+            }
 
             public String getAUniress() {
                 return AUniress;
@@ -264,35 +273,40 @@ public class DoctorInfoData extends BaseData {
             }
         }
 
-        public static class DaysData {
+        public static class QuestionsData {
             /**
-             * ScheduleDate : 02-27
-             * week : 星期二
+             * PageView : 15
+             * Question : 提问
+             * QuestionId : 1
              */
 
-            private String ScheduleDate;
-            private String week;
+            private String PageView;
+            private String Question;
+            private String QuestionId;
 
-            public String getScheduleDate() {
-                return ScheduleDate;
+            public String getPageView() {
+                return PageView;
             }
 
-            public void setScheduleDate(String ScheduleDate) {
-                this.ScheduleDate = ScheduleDate;
+            public void setPageView(String PageView) {
+                this.PageView = PageView;
             }
 
-            public String getWeek() {
-                return week;
+            public String getQuestion() {
+                return Question;
             }
 
-            public void setWeek(String week) {
-                this.week = week;
+            public void setQuestion(String Question) {
+                this.Question = Question;
+            }
+
+            public String getQuestionId() {
+                return QuestionId;
+            }
+
+            public void setQuestionId(String QuestionId) {
+                this.QuestionId = QuestionId;
             }
         }
-
-        public static class Schedules{
-
-        }
-
     }
 }

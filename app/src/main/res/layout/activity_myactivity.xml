@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.v1.unionc_user.ui.me.MyactivityActivity">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_had_register"
+            android:layout_width="108dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_blue_line_two_radius_left"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已报名"
+            android:textColor="@color/selector_tab_my_activity"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/cb_collect"
+            android:layout_width="108dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_blue_line_two_radius_right"
+            android:button="@null"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@color/selector_tab_my_activity"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        />
+</LinearLayout>

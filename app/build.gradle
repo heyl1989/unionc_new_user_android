@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:support-v4:26.+'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -79,4 +79,6 @@ dependencies {
     implementation project(':library:TIM_SDK')
     implementation project(':library:TIM_PRESENTATION')
     implementation project(':library:TIM_UI')
+    compile 'com.jaywei:compresstool:1.0.4'
+
 }

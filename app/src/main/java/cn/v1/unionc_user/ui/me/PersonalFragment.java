@@ -2,13 +2,12 @@ package cn.v1.unionc_user.ui.me;
 
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
-import android.graphics.Color;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.squareup.otto.Subscribe;
 
+import java.io.Serializable;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,8 +26,8 @@ import cn.v1.unionc_user.BusProvider;
 import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.data.Common;
 import cn.v1.unionc_user.data.SPUtil;
-import cn.v1.unionc_user.model.LoginData;
 import cn.v1.unionc_user.model.LoginUpdateEventData;
+import cn.v1.unionc_user.model.UpdatePersonalEventData;
 import cn.v1.unionc_user.model.UserInfoData;
 import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
@@ -45,7 +46,7 @@ public class PersonalFragment extends BaseFragment {
 
     @Bind(R.id.tv_right)
     TextView tvRight;
-    @Bind(R.id.img_avator)
+    @Bind(R.id.img_person_avator)
     CircleImageView imgAvator;
     @Bind(R.id.tv_number)
     TextView tvNumber;
@@ -63,12 +64,12 @@ public class PersonalFragment extends BaseFragment {
     TextView tvCommentNum;
     @Bind(R.id.tv_yaoqing)
     TextView tvYaoqing;
-    @Bind(R.id.tv_about_us)
-    TextView tvAboutUs;
     @Bind(R.id.tv_kefu)
     TextView tvKefu;
-    @Bind(R.id.tv_logout)
-    TextView tvLogout;
+
+    private String servicePhone = "";
+    private String workingHours = "";
+    private UserInfoData.DataData userInfo;
 
     public PersonalFragment() {
         // Required empty public constructor
@@ -86,6 +87,7 @@ public class PersonalFragment extends BaseFragment {
         BusProvider.getInstance().unregister(this);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,78 +103,97 @@ public class PersonalFragment extends BaseFragment {
         getUserInfo();
     }
 
-    @OnClick({R.id.img_back, R.id.tv_right, R.id.tv_edit, R.id.tv_yaoqing, R.id.tv_about_us, R.id.tv_kefu, R.id.tv_logout})
+    @OnClick({R.id.img_back, R.id.tv_right, R.id.tv_edit, R.id.tv_yaoqing, R.id.tv_my_activity, R.id.tv_kefu})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_back:
                 break;
             case R.id.tv_right:
+                goNewActivity(SettingActivity.class);
                 break;
             case R.id.tv_edit:
+                Intent intent = new Intent(context, EditUserInfoActivity.class);
+                intent.putExtra("userInfo", (Serializable) userInfo);
+                startActivity(intent);
                 break;
             case R.id.tv_yaoqing:
                 break;
-            case R.id.tv_about_us:
+            case R.id.tv_my_activity:
+                goNewActivity(MyactivityActivity.class);
                 break;
             case R.id.tv_kefu:
-                break;
-            case R.id.tv_logout:
-                PromptDialog logoutDialog = new PromptDialog(context);
-                logoutDialog.show();
-                logoutDialog .setTitle("退出登录");
-                logoutDialog.setMessage("确认退出登录？");
-                logoutDialog.setOnButtonClickListener(new OnButtonClickListener() {
+                PromptDialog contactDialog = new PromptDialog(context);
+                contactDialog.show();
+                contactDialog.setTitle(servicePhone + "");
+                contactDialog.setMessage(workingHours + "");
+                contactDialog.setTvConfirm("取消");
+                contactDialog.setTvCancel("呼叫");
+                contactDialog.setOnButtonClickListener(new OnButtonClickListener() {
                     @Override
                     public void onConfirmClick() {
-                        logout();
-                        goNewActivity(LoginActivity.class);
-                        tvLogout.setVisibility(View.GONE);
                     }
+
                     @Override
                     public void onCancelClick() {
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        Uri data = Uri.parse("tel:" + servicePhone);
+                        intent.setData(data);
+                        startActivity(intent);
                     }
                 });
                 break;
         }
     }
+
     @Subscribe
     public void subscribeUpdate(LoginUpdateEventData data) {
         getUserInfo();
     }
+
+    @Subscribe
+    public void subscribeUpdate(UpdatePersonalEventData data) {
+        getUserInfo();
+    }
+
     /**
      * 获取用户信息
      */
     private void getUserInfo() {
         showDialog("加载中...");
-        ConnectHttp.connect(UnionAPIPackage.getUserInfo((String) SPUtil.get(context, Common.USER_TOKEN,"")),
+        ConnectHttp.connect(UnionAPIPackage.getUserInfo((String) SPUtil.get(context, Common.USER_TOKEN, "")),
                 new BaseObserver<UserInfoData>(context) {
                     @SuppressLint("ResourceAsColor")
                     @Override
                     public void onResponse(UserInfoData data) {
                         closeDialog();
-                        if(TextUtils.equals("4000",data.getCode())){
+                        if (TextUtils.equals("4000", data.getCode())) {
+                            servicePhone = data.getData().getServicePhone();
+                            workingHours = data.getData().getWorkingHours();
+                            userInfo = data.getData();
+                            SPUtil.put(context, Common.USER_AVATOR, data.getData().getHeadImage());
                             Glide.with(context).load(data.getData().getHeadImage())
                                     .placeholder(R.drawable.icon_default_avator)
                                     .error(R.drawable.icon_default_avator)
                                     .into(imgAvator);
-                            tvNumber.setText(data.getData().getUserName()+"");
-                            tvDoctorNum.setText(data.getData().getDoctorCount()+"");
-                            tvHospitalNum.setText(data.getData().getClinicCount()+"");
-                            tvCommentNum.setText(data.getData().getEvaluateCount()+"");
-                            if(data.getData().getIsCertification() == 0){
+                            tvNumber.setText(data.getData().getUserName() + "");
+                            tvDoctorNum.setText(data.getData().getDoctorCount() + "");
+                            tvHospitalNum.setText(data.getData().getClinicCount() + "");
+                            tvCommentNum.setText(data.getData().getEvaluateCount() + "");
+                            if (data.getData().getIsCertification() == 0) {
                                 imgUserState.setImageResource(R.drawable.icon_no_passed);
                                 tvState.setText("未认证");
                                 tvState.setTextColor(R.color.red_rz);
-                            }else{
+                            } else {
                                 imgUserState.setImageResource(R.drawable.icon_passed);
-                                tvState.setText("未认证");
+                                tvState.setText("已认证");
                                 tvState.setTextColor(R.color.qm_blue);
                             }
 
-                        }else{
+                        } else {
                             showTost(data.getMessage());
                         }
                     }
+
                     @Override
                     public void onFail(Throwable e) {
                         closeDialog();
@@ -186,4 +207,5 @@ public class PersonalFragment extends BaseFragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
 }

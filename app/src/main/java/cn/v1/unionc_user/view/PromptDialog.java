@@ -21,9 +21,11 @@ public class PromptDialog extends Dialog {
     private OnButtonClickListener onButtonClickListener;
     private TextView tvTitle;
     private TextView tvMessage;
+    private TextView tvConfirm;
+    private TextView tvCancel;
 
     public PromptDialog(@NonNull Context context) {
-        super(context,R.style.Dialog);
+        super(context, R.style.Dialog);
     }
 
     @Override
@@ -34,26 +36,28 @@ public class PromptDialog extends Dialog {
     }
 
     private void initView() {
-         tvTitle = findViewById(R.id.tv_title);
-         tvMessage = findViewById(R.id.tv_message);
-         findViewById(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 if (null != onButtonClickListener) {
-                     onButtonClickListener.onConfirmClick();
-                 }
-                 dismiss();
-             }
-         });
-         findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 if (null != onButtonClickListener) {
-                     onButtonClickListener.onCancelClick();
-                 }
-                 dismiss();
-             }
-         });
+        tvTitle = findViewById(R.id.tv_title);
+        tvMessage = findViewById(R.id.tv_message);
+        tvConfirm = findViewById(R.id.tv_confirm);
+        tvConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != onButtonClickListener) {
+                    onButtonClickListener.onConfirmClick();
+                }
+                dismiss();
+            }
+        });
+        tvCancel = findViewById(R.id.tv_cancel);
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != onButtonClickListener) {
+                    onButtonClickListener.onCancelClick();
+                }
+                dismiss();
+            }
+        });
     }
 
     /**
@@ -72,6 +76,25 @@ public class PromptDialog extends Dialog {
      */
     public void setMessage(String message) {
         tvMessage.setText(message);
+    }
+
+
+    /**
+     * 设置确定信息
+     *
+     * @param confirm
+     */
+    public void setTvConfirm(String confirm) {
+        tvConfirm.setText(confirm);
+    }
+
+    /**
+     * 设置取消信息
+     *
+     * @param cancel
+     */
+    public void setTvCancel(String cancel) {
+        tvCancel.setText(cancel);
     }
 
     /**

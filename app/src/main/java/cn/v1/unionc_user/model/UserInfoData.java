@@ -1,5 +1,7 @@
 package cn.v1.unionc_user.model;
 
+import java.io.Serializable;
+
 /**
  * Created by qy on 2018/2/9.
  */
@@ -21,7 +23,7 @@ public class UserInfoData extends BaseData {
         this.data = data;
     }
 
-    public static class DataData {
+    public static class DataData implements Serializable{
         /**
          * ClinicCount : 0
          * DoctorCount : 0

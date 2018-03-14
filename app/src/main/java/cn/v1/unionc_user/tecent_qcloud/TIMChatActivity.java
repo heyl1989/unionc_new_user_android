@@ -31,14 +31,18 @@ import com.tencent.qcloud.ui.TemplateTitle;
 import com.tencent.qcloud.ui.VoiceSendingView;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.v1.unionc_user.BusProvider;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.model.LoginUpdateEventData;
 import cn.v1.unionc_user.tecent_qcloud.tim_model.CustomMessage;
+import cn.v1.unionc_user.tecent_qcloud.tim_model.DoctorInfo;
 import cn.v1.unionc_user.tecent_qcloud.tim_model.FileMessage;
 import cn.v1.unionc_user.tecent_qcloud.tim_model.ImageMessage;
 import cn.v1.unionc_user.tecent_qcloud.tim_model.Message;
@@ -51,6 +55,7 @@ import cn.v1.unionc_user.tecent_qcloud.tim_util.MediaUtil;
 import cn.v1.unionc_user.tecent_qcloud.tim_util.RecorderUtil;
 import cn.v1.unionc_user.tecent_qcloud.tim_util.TIMFileUtil;
 import cn.v1.unionc_user.ui.base.BaseActivity;
+import cn.v1.unionc_user.ui.home.DoctorDetailActivity;
 
 public class TIMChatActivity extends BaseActivity implements ChatView {
 
@@ -65,7 +70,7 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
     TemplateTitle title;
 
 
-    private String identify;
+    private DoctorInfo doctoInfo;
     private TIMConversationType type;
     private ChatPresenter presenter;
     private ChatAdapter adapter;
@@ -80,9 +85,9 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
     private Uri fileUri;
     private RecorderUtil recorder = new RecorderUtil();
 
-    public static void navToChat(Context context, String identify, TIMConversationType type) {
+    public static void navToChat(Context context, DoctorInfo doctorInfo, TIMConversationType type) {
         Intent intent = new Intent(context, TIMChatActivity.class);
-        intent.putExtra("identify", identify);
+        intent.putExtra("doctoInfo", (Serializable) doctorInfo);
         intent.putExtra("type", type);
         context.startActivity(intent);
     }
@@ -99,15 +104,15 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
     }
 
     private void initData() {
-        identify = getIntent().getStringExtra("identify");
+        doctoInfo = (DoctorInfo) getIntent().getSerializableExtra("doctoInfo");
         type = (TIMConversationType) getIntent().getSerializableExtra("type");
     }
 
 
     private void initView() {
-        presenter = new ChatPresenter(this, identify, type);
+        presenter = new ChatPresenter(this, doctoInfo.getIdentifier(), type);
         input.setChatView(this);
-        adapter = new ChatAdapter(this, R.layout.item_message, messageList);
+        adapter = new ChatAdapter(this, R.layout.item_message, messageList, doctoInfo);
         listView.setAdapter(adapter);
         listView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -140,7 +145,16 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
         });
         registerForContextMenu(listView);
         //TODO
-        title.setTitleText(identify);
+        title.setTitleText(doctoInfo.getDoctorName() + "");
+        title.setMoreImg(R.drawable.btn_person);
+        title.setMoreImgAction(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DoctorDetailActivity.class);
+                intent.putExtra("doctorIdentifier", doctoInfo.getIdentifier() + "");
+                startActivity(intent);
+            }
+        });
         presenter.start();
     }
 
@@ -161,6 +175,7 @@ public class TIMChatActivity extends BaseActivity implements ChatView {
     protected void onDestroy() {
         super.onDestroy();
         presenter.stop();
+        BusProvider.getInstance().post(new LoginUpdateEventData(true));
     }
 
     /**

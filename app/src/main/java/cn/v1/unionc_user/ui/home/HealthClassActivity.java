@@ -7,6 +7,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
+import com.tencent.imsdk.TIMConversation;
+import com.tencent.imsdk.TIMConversationType;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMUserProfile;
+import com.tencent.imsdk.ext.message.TIMConversationExt;
+import com.tencent.imsdk.ext.message.TIMManagerExt;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +34,7 @@ public class HealthClassActivity extends BaseActivity {
     ViewPager vpContent;
 
     private List<Fragment> healthFragment = new ArrayList<>();
-    private String[] tabItems = new String[]{"热门","关注"};
+    private String[] tabItems = new String[]{"热门", "关注"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +56,10 @@ public class HealthClassActivity extends BaseActivity {
         vpContent.setAdapter(healthClassPageAdapter);
         healthFragment.add(HealthClassHotFragment.newInstance());
         healthFragment.add(HealthClassFollowFragment.newInstance());
+
     }
 
-    class HealthClassPageAdapter extends FragmentPagerAdapter{
+    class HealthClassPageAdapter extends FragmentPagerAdapter {
 
         public HealthClassPageAdapter(FragmentManager fm) {
             super(fm);

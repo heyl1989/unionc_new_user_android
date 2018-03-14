@@ -27,6 +27,15 @@ public class LoginData extends BaseData {
          */
 
         private String token;
+        private String identifier;
+
+        public String getIdentifier() {
+            return identifier;
+        }
+
+        public void setIdentifier(String identifier) {
+            this.identifier = identifier;
+        }
 
         public String getToken() {
             return token;

@@ -2,6 +2,8 @@ package cn.v1.unionc_user.model;
 
 import java.util.List;
 
+import cn.v1.unionc_user.tecent_qcloud.tim_model.Message;
+
 /**
  * Created by qy on 2018/2/9.
  */
@@ -54,7 +56,7 @@ public class HomeListData extends BaseData {
 
         public static class HomeData {
 
-            private String type ;
+            private String type;
 
             public String getType() {
                 return type;
@@ -62,6 +64,26 @@ public class HomeListData extends BaseData {
 
             public void setType(String type) {
                 this.type = type;
+            }
+
+            private Message lastMessage;
+
+            public Message getLastMessage() {
+                return lastMessage;
+            }
+
+            public void setLastMessage(Message lastMessage) {
+                this.lastMessage = lastMessage;
+            }
+
+            private String lasttime;
+
+            public String getLasttime() {
+                return lasttime;
+            }
+
+            public void setLasttime(String lasttime) {
+                this.lasttime = lasttime;
             }
 
             /**

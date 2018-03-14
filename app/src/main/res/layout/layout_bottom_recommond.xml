@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_recommend_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/selector_recommend"
+            android:checked="false"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="推荐" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_no_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/selector_no_recommend"
+            android:checked="false"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="不推荐" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

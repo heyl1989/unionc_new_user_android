@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void initData() {
-        if(getIntent().hasExtra("from")){
+        if (getIntent().hasExtra("from")) {
             from = getIntent().getStringExtra("from");
         }
     }
@@ -154,7 +154,7 @@ public class LoginActivity extends BaseActivity {
      * @param phoneNumber
      * @param authCode
      */
-    private void login(String phoneNumber, String authCode) {
+    private void login(final String phoneNumber, String authCode) {
         showDialog("登录中...");
         ConnectHttp.connect(UnionAPIPackage.login(phoneNumber, authCode), new BaseObserver<LoginData>(context) {
 
@@ -162,8 +162,10 @@ public class LoginActivity extends BaseActivity {
             public void onResponse(LoginData data) {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
-                    SPUtil.put(context,Common.IDENTIFIER,"sutao");
-                    getTIMSig(data.getData().getToken(), "sutao");
+                    String identifier = data.getData().getIdentifier() + "";
+                    SPUtil.put(context, Common.IDENTIFIER, identifier);
+                    SPUtil.put(context, Common.USER_PHONE, phoneNumber);
+                    getTIMSig(data.getData().getToken(), identifier);
                 } else {
                     showTost(data.getMessage());
                 }
@@ -204,7 +206,7 @@ public class LoginActivity extends BaseActivity {
                         public void onSuccess() {
                             Logger.d("login succ");
                             showTost("登录成功");
-                            if(TextUtils.equals("start",from)){
+                            if (TextUtils.equals("start", from)) {
                                 goNewActivity(MainActivity.class);
                             }
                             login(token);

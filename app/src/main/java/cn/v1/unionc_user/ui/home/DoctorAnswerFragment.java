@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.model.DoctorInfoData;
 import cn.v1.unionc_user.ui.adapter.DoctorAnswerAdapter;
 import cn.v1.unionc_user.ui.adapter.HospitalDoctorAdapter;
 import cn.v1.unionc_user.ui.base.BaseFragment;
@@ -25,13 +29,29 @@ public class DoctorAnswerFragment extends BaseFragment {
     @Bind(R.id.listView)
     ScrollListView listView;
 
-    public static DoctorAnswerFragment newInstance() {
+    private List<DoctorInfoData.DataData.QuestionsData> questionsDataList = new ArrayList<>();
+    private DoctorAnswerAdapter doctorAnswerAdapter;
+    private String doctorId = "";
+
+    public static DoctorAnswerFragment newInstance(String doctorId) {
         DoctorAnswerFragment fragment = new DoctorAnswerFragment();
-//        Bundle args = new Bundle();
+        Bundle args = new Bundle();
+        args.putString("doctorId", doctorId);
 //        args.putString(ARG_PARAM1, param1);
 //        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
+        fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            String doctorId = getArguments().getString("doctorId");
+            if (null != doctorId) {
+                this.doctorId = doctorId;
+            }
+        }
     }
 
     @Override
@@ -51,8 +71,14 @@ public class DoctorAnswerFragment extends BaseFragment {
 
     private void initView() {
         listView.setFocusable(false);
-        DoctorAnswerAdapter doctorAnswerAdapter = new DoctorAnswerAdapter(context);
+        doctorAnswerAdapter = new DoctorAnswerAdapter(context,doctorId);
         listView.setAdapter(doctorAnswerAdapter);
+    }
+
+
+    public void setData(List<DoctorInfoData.DataData.QuestionsData> questionsDataList) {
+        this.questionsDataList = questionsDataList;
+        doctorAnswerAdapter.setData(questionsDataList);
     }
 
     @Override

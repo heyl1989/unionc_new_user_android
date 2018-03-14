@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.v1.unionc_user.ui.me.SettingActivity">
+
+    <include layout="@layout/layout_toolbar" />
+
+
+    <TextView
+        android:id="@+id/tv_service_agreement"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_about_us"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:text="服务协议"
+        android:textColor="@color/main_text"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="-1dp"
+        android:background="@color/line" />
+
+    <TextView
+        android:id="@+id/tv_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_about_us"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:text="关于医巴士"
+        android:textColor="@color/main_text"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="#FF333333"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -11,10 +11,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,7 +24,18 @@ import com.amap.api.location.AMapLocation;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.squareup.otto.Subscribe;
+import com.tencent.imsdk.TIMConversation;
 import com.tencent.imsdk.TIMConversationType;
+import com.tencent.imsdk.TIMFriendshipManager;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMMessageListener;
+import com.tencent.imsdk.TIMUserProfile;
+import com.tencent.imsdk.TIMValueCallBack;
+import com.tencent.imsdk.ext.group.TIMGroupCacheInfo;
+import com.tencent.imsdk.ext.message.TIMConversationExt;
+import com.tencent.imsdk.ext.message.TIMManagerExt;
+import com.tencent.qcloud.presentation.viewfeatures.ConversationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +54,8 @@ import cn.v1.unionc_user.network_frame.ConnectHttp;
 import cn.v1.unionc_user.network_frame.UnionAPIPackage;
 import cn.v1.unionc_user.network_frame.core.BaseObserver;
 import cn.v1.unionc_user.tecent_qcloud.TIMChatActivity;
+import cn.v1.unionc_user.tecent_qcloud.tim_model.MessageFactory;
+import cn.v1.unionc_user.tecent_qcloud.tim_util.TimeUtil;
 import cn.v1.unionc_user.ui.adapter.HomeListAdapter;
 import cn.v1.unionc_user.ui.base.BaseFragment;
 import cn.v1.unionc_user.utils.Location;
@@ -60,8 +75,8 @@ public class MessageFragment extends BaseFragment {
     TextView tvCity;
     @Bind(R.id.tv_address)
     TextView tvAddress;
-    @Bind(R.id.img_message)
-    ImageView imgMessage;
+    @Bind(R.id.ll_search)
+    LinearLayout llSearch;
     @Bind(R.id.tv_saoma)
     TextView tvSaoma;
     @Bind(R.id.tv_guahao)
@@ -80,6 +95,7 @@ public class MessageFragment extends BaseFragment {
     private int[] imgs = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d};
     private HomeListAdapter homeListAdapter;
     private List<HomeListData.DataData.HomeData> datas = new ArrayList<>();
+    private List<HomeListData.DataData.HomeData> newConversations = new ArrayList<>();
     private String currentPoiname;
     private String longitude;
     private String latitude;
@@ -118,13 +134,14 @@ public class MessageFragment extends BaseFragment {
         initLocation();
     }
 
-    @OnClick({R.id.tv_address, R.id.img_message, R.id.tv_saoma, R.id.tv_guahao, R.id.tv_yihu, R.id.tv_health})
+    @OnClick({R.id.tv_address, R.id.ll_search, R.id.tv_saoma, R.id.tv_guahao, R.id.tv_yihu, R.id.tv_health})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_address:
                 confirmLocationDialog();
                 break;
-            case R.id.img_message:
+            case R.id.ll_search:
+                goNewActivity(SearchWebViewActivity.class);
                 break;
             case R.id.tv_saoma:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -141,7 +158,6 @@ public class MessageFragment extends BaseFragment {
                 goNewActivity(HospitalDetailActivity.class);
                 break;
             case R.id.tv_yihu:
-                TIMChatActivity.navToChat(context, "heyl", TIMConversationType.C2C);
                 break;
             case R.id.tv_health:
                 goNewActivity(HealthClassActivity.class);
@@ -179,6 +195,14 @@ public class MessageFragment extends BaseFragment {
         mainRecycleview.setLayoutManager(new LinearLayoutManager(context));
         homeListAdapter = new HomeListAdapter(context);
         mainRecycleview.setAdapter(homeListAdapter);
+
+        TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
+            @Override
+            public boolean onNewMessages(List<TIMMessage> list) {
+                Logger.d("TIMMessage_list");
+                return false;
+            }
+        });
     }
 
     @Subscribe
@@ -264,7 +288,7 @@ public class MessageFragment extends BaseFragment {
                         if (data.getData().getSignedDoctros().size() != 0 ||
                                 data.getData().getAttendingDoctors().size() != 0) {
                             rlRecommond.setVisibility(View.GONE);
-                        }else{
+                        } else {
                             rlRecommond.setVisibility(View.VISIBLE);
                         }
                     }
@@ -293,6 +317,35 @@ public class MessageFragment extends BaseFragment {
                             datas.get(index + i).setType(Common.ATTENDING_DOCTORS);
                         }
 
+                    }
+                    //获取会话列表
+                    if (isLogin()) {
+                        newConversations.clear();
+                        int index = datas.size();
+                        List<TIMConversation> conversations = TIMManagerExt.getInstance().getConversationList();
+                        Logger.e(new Gson().toJson(conversations));
+                        for (int i = 0; i < conversations.size(); i++) {
+                            if (TIMConversationType.System != conversations.get(i).getType()) {
+                                List<TIMMessage> timMessages = new TIMConversationExt(conversations.get(i)).getLastMsgs(10);
+                                Logger.e(new Gson().toJson(timMessages.get(0)));
+                                HomeListData.DataData.HomeData homeData = new HomeListData.DataData.HomeData();
+                                homeData.setIdentifier(conversations.get(i).getPeer());
+                                homeData.setLastMessage(MessageFactory.getMessage(timMessages.get(0)));
+                                homeData.setLasttime(TimeUtil.getTimeStr(timMessages.get(0).timestamp()) + "");
+                                newConversations.add(homeData);
+                                newConversations.get(i).setType(Common.CONVERSATIONS);
+                            }
+                        }
+                        for (int i = 0; i < newConversations.size(); i++) {
+                            for (int j = 0; j < datas.size(); j++) {
+                                String conversationIdentifier = newConversations.get(i).getIdentifier();
+                                String datasIdentifier = datas.get(j).getIdentifier();
+                                if(TextUtils.equals(conversationIdentifier,datasIdentifier)){
+                                    datas.remove(j);
+                                }
+                            }
+                        }
+                        datas.addAll(newConversations);
                     }
                     homeListAdapter.setData(datas);
                     Logger.json(new Gson().toJson(datas));

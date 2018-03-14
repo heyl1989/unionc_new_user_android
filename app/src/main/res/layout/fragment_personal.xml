@@ -20,14 +20,15 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:scaleType="center"
-                android:src="@drawable/icon_back_white" />
+                android:src="@drawable/icon_back_white"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="手机验证"
+                android:text="个人中心"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -49,7 +50,7 @@
             android:layout_height="match_parent">
 
             <cn.v1.unionc_user.view.CircleImageView
-                android:id="@+id/img_avator"
+                android:id="@+id/img_person_avator"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="12dp"
@@ -62,10 +63,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="37dp"
-                android:layout_toRightOf="@+id/img_avator"
-                tools:text="13810205545"
+                android:layout_toRightOf="@id/img_person_avator"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:text="13810205545" />
 
             <TextView
                 android:id="@+id/tv_edit"
@@ -86,7 +87,7 @@
                 android:layout_below="@+id/tv_number"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/img_avator"
+                android:layout_toRightOf="@id/img_person_avator"
                 android:background="@drawable/bg_rz"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -103,9 +104,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    tools:text="已认证"
                     android:textColor="@color/qm_blue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:text="已认证" />
 
             </LinearLayout>
 
@@ -152,10 +153,10 @@
                 android:id="@+id/tv_doctor_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="10" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -185,10 +186,10 @@
                 android:id="@+id/tv_hospital_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="10" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,10 +218,10 @@
                 android:id="@+id/tv_comment_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="10"
                 android:textColor="@color/qm_blue"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="10" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -233,6 +234,20 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_my_activity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_my_activity"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:text="我的活动"
+        android:textColor="@color/main_text"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_yaoqing"
@@ -248,25 +263,6 @@
         android:textColor="@color/main_text"
         android:textSize="16sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="-1dp"
-        android:background="@color/line" />
-
-    <TextView
-        android:id="@+id/tv_about_us"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/icon_about_us"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="12dp"
-        android:text="关于我们"
-        android:textColor="@color/main_text"
-        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
@@ -291,18 +287,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
-
-    <TextView
-        android:id="@+id/tv_logout"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:text="退出登录"
-        android:textColor="#FF333333"
-        android:textSize="16sp"
-        />
 
 </LinearLayout>
