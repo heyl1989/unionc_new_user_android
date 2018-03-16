@@ -44,6 +44,7 @@ public class SettingActivity extends BaseActivity {
             case R.id.tv_service_agreement:
                 break;
             case R.id.tv_about_us:
+                goNewActivity(AboutYIBASHIActivity.class);
                 break;
             case R.id.tv_logout:
                 PromptDialog logoutDialog = new PromptDialog(context);

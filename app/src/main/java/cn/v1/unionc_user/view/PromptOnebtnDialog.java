@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import butterknife.Bind;
 import cn.v1.unionc_user.R;
 import cn.v1.unionc_user.view.dialog_interface.OnButtonClickListener;
 
@@ -15,14 +16,12 @@ import cn.v1.unionc_user.view.dialog_interface.OnButtonClickListener;
  * 提示框
  */
 
-public class PromptOnebtnDialog extends Dialog {
+public abstract class PromptOnebtnDialog extends Dialog {
 
 
-    private OnButtonClickListener onButtonClickListener;
     private TextView tvTitle;
     private TextView tvMessage;
-    private TextView tvConfirm;
-    private TextView tvCancel;
+    private TextView tvClose;
 
     public PromptOnebtnDialog(@NonNull Context context) {
         super(context, R.style.Dialog);
@@ -31,33 +30,22 @@ public class PromptOnebtnDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_prompt_dialog);
+        setContentView(R.layout.dialog_prompt_one_btn);
         initView();
     }
 
     private void initView() {
         tvTitle = findViewById(R.id.tv_title);
         tvMessage = findViewById(R.id.tv_message);
-        tvConfirm = findViewById(R.id.tv_confirm);
-        tvConfirm.setOnClickListener(new View.OnClickListener() {
+        tvClose = findViewById(R.id.tv_close);
+        tvClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != onButtonClickListener) {
-                    onButtonClickListener.onConfirmClick();
-                }
+                onClosed();
                 dismiss();
             }
         });
-        tvCancel = findViewById(R.id.tv_cancel);
-        tvCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != onButtonClickListener) {
-                    onButtonClickListener.onCancelClick();
-                }
-                dismiss();
-            }
-        });
+
     }
 
     /**
@@ -82,29 +70,14 @@ public class PromptOnebtnDialog extends Dialog {
     /**
      * 设置确定信息
      *
-     * @param confirm
+     * @param closeMessage
      */
-    public void setTvConfirm(String confirm) {
-        tvConfirm.setText(confirm);
+    public void setTvConfirm(String closeMessage) {
+        tvClose.setText(closeMessage);
     }
 
-    /**
-     * 设置取消信息
-     *
-     * @param cancel
-     */
-    public void setTvCancel(String cancel) {
-        tvCancel.setText(cancel);
-    }
 
-    /**
-     * 设置监听
-     *
-     * @param onButtonClickListener 按键监听
-     */
-    public void setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
-        this.onButtonClickListener = onButtonClickListener;
-    }
+    public abstract void onClosed();
 
     @Override
     public void onDetachedFromWindow() {

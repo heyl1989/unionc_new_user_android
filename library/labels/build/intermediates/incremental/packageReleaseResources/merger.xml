@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\main\res"/><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\build\generated\res\rs\release"/><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\build\generated\res\resValues\release"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\main\res"><file path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\main\res\values\attr.xml" qualifiers=""><declare-styleable name="labels_view">
+        <attr format="enum" name="selectType">
+            <enum name="NONE" value="1"/>
+            <enum name="SINGLE" value="2"/>
+            <enum name="SINGLE_IRREVOCABLY" value="3"/>
+            <enum name="MULTI" value="4"/>
+        </attr>
+        <attr format="integer" name="maxSelect"/>
+        <attr format="reference" name="labelTextColor"/>
+        <attr format="dimension" name="labelTextSize"/>
+        <attr format="dimension" name="labelTextPaddingLeft"/>
+        <attr format="dimension" name="labelTextPaddingTop"/>
+        <attr format="dimension" name="labelTextPaddingRight"/>
+        <attr format="dimension" name="labelTextPaddingBottom"/>
+        <attr format="dimension" name="lineMargin"/>
+        <attr format="dimension" name="wordMargin"/>
+        <attr format="reference" name="labelBackground"/>
+    </declare-styleable></file><file path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">labels</string><item name="tag_key_data" type="id"/><item name="tag_key_position" type="id"/></file></source><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\build\generated\res\rs\release"/><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\build\generated\res\resValues\release"/></dataSet><dataSet config="release$Generated" generated="true"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\release\res"/></dataSet><dataSet config="release" generated-set="release$Generated"><source path="D:\AndroidStudioProjects\unionc_new_user_android\library\labels\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="labels_view"><attr format="enum" name="selectType">
+            <enum name="NONE" value="1"/>
+            <enum name="SINGLE" value="2"/>
+            <enum name="SINGLE_IRREVOCABLY" value="3"/>
+            <enum name="MULTI" value="4"/>
+        </attr><attr format="integer" name="maxSelect"/><attr format="reference" name="labelTextColor"/><attr format="dimension" name="labelTextSize"/><attr format="dimension" name="labelTextPaddingLeft"/><attr format="dimension" name="labelTextPaddingTop"/><attr format="dimension" name="labelTextPaddingRight"/><attr format="dimension" name="labelTextPaddingBottom"/><attr format="dimension" name="lineMargin"/><attr format="dimension" name="wordMargin"/><attr format="reference" name="labelBackground"/></declare-styleable></configuration></mergedItems></merger>

@@ -2,10 +2,15 @@ package cn.v1.unionc_user.ui.home;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -29,6 +34,7 @@ import cn.v1.unionc_user.tecent_qcloud.TIMChatActivity;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 import cn.v1.unionc_user.ui.me.RealNameAuthActivity;
 import cn.v1.unionc_user.view.PromptDialog;
+import cn.v1.unionc_user.view.PromptOnebtnDialog;
 import cn.v1.unionc_user.view.dialog_interface.OnButtonClickListener;
 
 public class SignDoctorAgreeMentWebViewActivity extends BaseActivity {
@@ -63,10 +69,10 @@ public class SignDoctorAgreeMentWebViewActivity extends BaseActivity {
             case R.id.tv_sign:
                 PromptDialog signDoctor = new PromptDialog(context);
                 signDoctor.show();
-                signDoctor.setTitle("签约医生");
-                signDoctor.setMessage("将这位医生签约为家庭医生?");
-                signDoctor.setTvCancel("签约");
-                signDoctor.setTvConfirm("取消");
+                signDoctor.setTitle("小巴提示：");
+                signDoctor.setMessage("确认申请签约家医服务?");
+                signDoctor.setTvCancel("确定");
+                signDoctor.setTvConfirm("关闭");
                 signDoctor.setOnButtonClickListener(new OnButtonClickListener() {
                     @Override
                     public void onConfirmClick() {
@@ -91,14 +97,50 @@ public class SignDoctorAgreeMentWebViewActivity extends BaseActivity {
 
     private void initView() {
         tvTitle.setText("签约家庭医生");
-        webviewSignDoctor.loadUrl("http://192.168.21.93:8080/unionApp/H5/index.html");
+        showDialog("加载中...");
+        webviewSignDoctor.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if (newProgress == 100) {
+                    closeDialog();
+                }
+            }
+        });
         webviewSignDoctor.setWebViewClient(new WebViewClient() {
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
             }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();//设置支持https
+            }
         });
+        // android 5.0以上默认不支持Mixed Content
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webviewSignDoctor.getSettings().setMixedContentMode(
+                    WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }
+        WebSettings webSettings = webviewSignDoctor.getSettings();
+        //多窗口
+        webSettings.supportMultipleWindows();
+        //获取触摸焦点
+        webviewSignDoctor.requestFocusFromTouch();
+        //允许访问文件
+        webSettings.setAllowFileAccess(true);
+        //开启javascript
+        webSettings.setJavaScriptEnabled(true);
+        //支持通过JS打开新窗口
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        //提高渲染的优先级
+        webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        //支持内容重新布局
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webviewSignDoctor.loadUrl("http://192.168.21.93:8080/unionApp/H5/index.html");
     }
 
     /**
@@ -168,9 +210,17 @@ public class SignDoctorAgreeMentWebViewActivity extends BaseActivity {
                     public void onResponse(IsDoctorSignData data) {
                         closeDialog();
                         if (TextUtils.equals("4000", data.getCode())) {
-                            if (TextUtils.equals("1", data.getData().getIsSigned())) {
+                            String signState = data.getData().getIsSigned();
+                            if (TextUtils.equals("1", signState)) {
+                                //已签约
+                                showPromptDialog("恭喜您，已签约家庭医生！");
                                 tvSign.setVisibility(View.GONE);
-                            } else {
+                            } else if (TextUtils.equals("-1", signState)) {
+                                //审核
+                                showPromptDialog("申请已提交，审核结果将在信息提交成功后的48小时内反馈，" +
+                                "注意手机保持开机，当地医院会与您电话联系！");
+                            } else if (TextUtils.equals("0", signState)) {
+                                //可以签约
                                 tvSign.setVisibility(View.VISIBLE);
                             }
                         } else if (TextUtils.equals("4021", data.getCode())) {
@@ -185,6 +235,18 @@ public class SignDoctorAgreeMentWebViewActivity extends BaseActivity {
                         closeDialog();
                     }
                 });
+    }
+
+    private void showPromptDialog(String message){
+        PromptOnebtnDialog promptOnebtnDialog = new PromptOnebtnDialog(context){
+            @Override
+            public void onClosed() {
+
+            }
+        };
+        promptOnebtnDialog.show();
+        promptOnebtnDialog.setTitle("小巴提示：");
+        promptOnebtnDialog.setMessage(message);
     }
 
 

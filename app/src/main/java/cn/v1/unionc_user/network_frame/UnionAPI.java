@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.model.ClinicActivityData;
 import cn.v1.unionc_user.model.DoctorAnswerDetailData;
 import cn.v1.unionc_user.model.DoctorEvaluateData;
 import cn.v1.unionc_user.model.DoctorInfoData;
@@ -228,4 +229,27 @@ public interface UnionAPI {
     @FormUrlEncoded
     @POST("clinic/save-doctor-evaluate")
     Observable<BaseData> saveDoctorEvaluate(@FieldMap Map<String, Object> params);
+
+    /**
+     * 查询医院活动
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("activity/clinic-activities")
+    Observable<ClinicActivityData> clinicActivities(@FieldMap Map<String, Object> params);
+
+
+    /**
+     * 簽約醫院活動
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("activity/sign-activities")
+    Observable<BaseData> signActivities(@FieldMap Map<String, Object> params);
+
+
 }

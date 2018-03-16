@@ -116,7 +116,8 @@ public class ViewDoctorAnswerActivity extends BaseActivity {
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.getDoctorInfo(token, doctorId,
                 (String) SPUtil.get(context, Common.LONGITUDE, ""),
-                (String) SPUtil.get(context, Common.LATITUDE, "")
+                (String) SPUtil.get(context, Common.LATITUDE, ""),
+                ""
                 ),
                 new BaseObserver<DoctorInfoData>(context) {
                     @Override

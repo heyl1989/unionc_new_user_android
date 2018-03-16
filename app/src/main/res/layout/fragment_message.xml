@@ -29,9 +29,9 @@
             android:layout_marginLeft="12dp"
             android:drawablePadding="3dp"
             android:drawableRight="@drawable/icon_sanjiao"
-            android:maxLength="5"
             android:ellipsize="end"
             android:lines="1"
+            android:maxLength="5"
             android:maxWidth="120dp"
             android:textColor="#FFE1E5F2"
             android:textSize="14dp"
@@ -72,9 +72,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:background="#4E78F6"
-        android:gravity="center_vertical"
+        android:paddingTop="15dp"
         android:orientation="horizontal">
 
         <TextView
@@ -89,41 +89,92 @@
             android:textColor="@color/white"
             android:textSize="14dp" />
 
-        <TextView
-            android:id="@+id/tv_guahao"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawablePadding="6dp"
-            android:drawableTop="@drawable/icon_guahao"
-            android:gravity="center"
-            android:text="名医挂号"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_yihu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawablePadding="6dp"
-            android:drawableTop="@drawable/icon_yihu"
-            android:gravity="center"
-            android:text="医护上门"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            <TextView
+                android:id="@+id/tv_guahao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:drawableTop="@drawable/icon_guahao_preview"
+                android:gravity="center"
+                android:text="名医挂号"
+                android:textColor="#FFB6B8BF"
+                android:textSize="14dp" />
 
-        <TextView
-            android:id="@+id/tv_health"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="…敬请期待…"
+                android:textColor="#FFB6B8BF"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawablePadding="6dp"
-            android:drawableTop="@drawable/icon_health"
-            android:gravity="center"
-            android:text="健康课堂"
-            android:textColor="@color/white"
-            android:textSize="14dp" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_yihu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:drawableTop="@drawable/icon_hushi_preview"
+                android:gravity="center"
+                android:text="医护上门"
+                android:textColor="#FFB6B8BF"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="…敬请期待…"
+                android:textColor="#FFB6B8BF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:drawableTop="@drawable/icon_health_preview"
+                android:gravity="center"
+                android:text="健康课堂"
+                android:textColor="#FFB6B8BF"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="…敬请期待…"
+                android:textColor="#FFB6B8BF"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

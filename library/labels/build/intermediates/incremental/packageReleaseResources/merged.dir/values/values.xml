@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="labels_view"><attr format="enum" name="selectType">
+            <enum name="NONE" value="1"/>
+            <enum name="SINGLE" value="2"/>
+            <enum name="SINGLE_IRREVOCABLY" value="3"/>
+            <enum name="MULTI" value="4"/>
+        </attr><attr format="integer" name="maxSelect"/><attr format="reference" name="labelTextColor"/><attr format="dimension" name="labelTextSize"/><attr format="dimension" name="labelTextPaddingLeft"/><attr format="dimension" name="labelTextPaddingTop"/><attr format="dimension" name="labelTextPaddingRight"/><attr format="dimension" name="labelTextPaddingBottom"/><attr format="dimension" name="lineMargin"/><attr format="dimension" name="wordMargin"/><attr format="reference" name="labelBackground"/></declare-styleable>
+    <item name="tag_key_data" type="id"/>
+    <item name="tag_key_position" type="id"/>
+    <string name="app_name">labels</string>
+</resources>

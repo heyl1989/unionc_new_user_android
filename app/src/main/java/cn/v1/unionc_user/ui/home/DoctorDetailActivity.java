@@ -122,6 +122,7 @@ public class DoctorDetailActivity extends BaseActivity {
     private String doctorAvator;
     private String doctorName;
     private DoctorDetailPageAdapter doctorDetailPageAdapter;
+    private String source = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,6 +300,10 @@ public class DoctorDetailActivity extends BaseActivity {
             initfragmentData();
             Logger.d(doctorId);
         }
+        if (getIntent().hasExtra("source")) {
+            source = getIntent().getStringExtra("source");
+
+        }
         if (getIntent().hasExtra("doctorIdentifier")) {
             String doctorIdentifier = getIntent().getStringExtra("doctorIdentifier");
             String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
@@ -453,7 +458,8 @@ public class DoctorDetailActivity extends BaseActivity {
         String token = (String) SPUtil.get(context, Common.USER_TOKEN, "");
         ConnectHttp.connect(UnionAPIPackage.getDoctorInfo(token, doctorId,
                 (String) SPUtil.get(context, Common.LONGITUDE, ""),
-                (String) SPUtil.get(context, Common.LATITUDE, "")
+                (String) SPUtil.get(context, Common.LATITUDE, ""),
+                source
                 ),
                 new BaseObserver<DoctorInfoData>(context) {
                     @Override

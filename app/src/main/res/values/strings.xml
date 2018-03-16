@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">青麦健康</string>
+    <string name="app_name">医巴士</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -28,5 +28,13 @@
         Toolbar设置为固定不动，另外，C
         ollapsingToolbarLayout会对title进行放大
         和缩小，我们看看效果吧~
+    </string>
+
+    <string name="about_yibashi" >医巴士，针对患者看病难、看病贵、
+        等待时间长的问题，提供了一个以医患沟通为主，护士康复、送药上门、
+        名医挂号为辅的医疗服务平台；\n\n
+        医巴士，是千医健康管理有限公司旗下产品，千医健康旗下拥有“医护到家”产品，
+        千医健康是全国首家互联网医养服务试点平台，全国首家三甲护士集团、
+        全国首家中医集团、目前已覆盖31个省280个城市数千万用户。
     </string>
 </resources>

@@ -132,7 +132,12 @@
         <activity android:name=".ui.home.SignDoctorAgreeMentWebViewActivity" />
         <activity android:name=".ui.me.SettingActivity" />
         <activity android:name=".ui.me.MyactivityActivity" />
-        <activity android:name=".ui.home.SearchWebViewActivity"></activity>
+        <activity android:name=".ui.home.SearchWebViewActivity" />
+        <activity
+            android:name=".ui.home.SignactivityActivity"
+            android:theme="@style/Dialog" />
+        <activity android:name=".ui.LoginAgreementActivity" />
+        <activity android:name=".ui.me.AboutYIBASHIActivity"></activity>
     </application>
 
 </manifest>

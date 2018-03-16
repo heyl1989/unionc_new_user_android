@@ -49,7 +49,7 @@ public class DiscoverFragment extends BaseFragment {
     }
 
 
-    private final String url = "https://192.168.11.216:8085/unionApp/page/index.html";
+    private final String url = "https://192.168.21.93:8085/unionApp/page/index.html";
 
 
     @Override
@@ -72,11 +72,11 @@ public class DiscoverFragment extends BaseFragment {
      * 配置webview
      */
     private void webViewConfigure() {
-        webview.setWebChromeClient(new WebChromeClient(){
+        webview.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-                if(newProgress == 100){
+                if (newProgress == 100) {
                     closeDialog();
                 }
             }
@@ -114,21 +114,6 @@ public class DiscoverFragment extends BaseFragment {
         webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
         //支持内容重新布局
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        //设置webview中缓存
-        if (NetWorkUtils.isNetworkConnected(context)) {
-            webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);//根据cache-control决定是否从网络上取数据。
-        } else {
-            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//没网，则从本地获取，即离线加载
-        }
-        webSettings.setDomStorageEnabled(true); // 开启 DOM storage API 功能
-        webSettings.setDatabaseEnabled(true);   //开启 database storage API 功能
-        webSettings.setAppCacheEnabled(true);//开启 Application Caches 功能
-        if(!SPUtil.contains(context,QM_SET)){
-            String cacheDirPath = context.getFilesDir().getAbsolutePath() + File.separator + APP_CACAHE_DIRNAME;
-            Logger.e(cacheDirPath);
-            webSettings.setAppCachePath(cacheDirPath); //设置  Application Caches 缓存目录
-            SPUtil.put(context, QM_SET,true);
-        }
         webview.loadUrl(url);
     }
 

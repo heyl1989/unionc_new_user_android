@@ -111,6 +111,7 @@ public class LoginActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_agreement:
+                goNewActivity(LoginAgreementActivity.class);
                 break;
         }
     }

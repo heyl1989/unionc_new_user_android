@@ -140,9 +140,10 @@
 
         <ImageView
             android:id="@+id/img_check_agreement"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/icon_check"
+            android:scaleType="center"
             />
 
         <TextView

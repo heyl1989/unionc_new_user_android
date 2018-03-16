@@ -23,6 +23,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.v1.unionc_user.R;
+import cn.v1.unionc_user.ui.adapter.Capture_activityActivityAdapter;
 import cn.v1.unionc_user.ui.base.BaseActivity;
 
 public class CaptureActivity extends BaseActivity {
@@ -55,6 +56,7 @@ public class CaptureActivity extends BaseActivity {
     @Override
     protected void onResume() {
         mScannerView.onResume();
+        mScannerView.restartPreviewAfterDelay(1000);
         super.onResume();
     }
 
@@ -75,11 +77,32 @@ public class CaptureActivity extends BaseActivity {
                 if (rawResult.getText().contains("unionWeb/activity/clinic-activities")) {
                     //医院二维码
                     try {
-                        String[] splitText1 = text.split("clinicId=\"");
-                        String[] splitText2 = splitText1[1].split("\"}");
-                        String clinicId = splitText2[0];
+                        String[] splitText1 = text.split("clinicId=");
+                        Logger.d(Arrays.toString(splitText1));
+                        String clinicId = "";
+                        if (splitText1[splitText1.length - 1].contains("}")) {
+                            String[] splitText2 = splitText1[splitText1.length - 1].split("\\}");
+                            Logger.d(Arrays.toString(splitText2));
+                            clinicId = splitText2[0];
+                        } else if (splitText1[splitText1.length - 1].contains(",")) {
+                            String[] splitText2 = splitText1[splitText1.length - 1].split(",");
+                            Logger.d(Arrays.toString(splitText2));
+                            clinicId = splitText2[0];
+                        } else if (splitText1[splitText1.length - 1].contains("&")) {
+                            String[] splitText2 = splitText1[splitText1.length - 1].split("&");
+                            Logger.d(Arrays.toString(splitText2));
+                            clinicId = splitText2[0];
+                        } else {
+                            clinicId = splitText1[splitText1.length - 1];
+                        }
+                        if (clinicId.contains("\"")) {
+                            clinicId = clinicId.replaceAll("\"", "");
+                        }
+                        Intent intent = new Intent(context, SignactivityActivity.class);
+                        intent.putExtra("clinicId", clinicId);
+                        startActivity(intent);
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
 
                 }
@@ -95,15 +118,16 @@ public class CaptureActivity extends BaseActivity {
                         } else {
                             doctId = splitText1[1];
                         }
-                        if(doctId.contains("\"")){
-                            doctId =  doctId.replaceAll("\"","");
+                        if (doctId.contains("\"")) {
+                            doctId = doctId.replaceAll("\"", "");
                         }
                         Intent intent = new Intent(context, DoctorDetailActivity.class);
                         intent.putExtra("doctorId", doctId);
+                        intent.putExtra("source", 1 + "");
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
                 }
 

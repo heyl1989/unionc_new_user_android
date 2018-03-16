@@ -46,6 +46,7 @@ public class MyactivityActivity extends BaseActivity {
 
     private void initView() {
         tvTitle.setText("我的活动");
+        cbHadRegister.setChecked(true);
         cbHadRegister.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

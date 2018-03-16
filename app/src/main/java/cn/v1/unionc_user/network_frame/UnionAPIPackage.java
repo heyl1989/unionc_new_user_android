@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.v1.unionc_user.model.BaseData;
+import cn.v1.unionc_user.model.ClinicActivityData;
 import cn.v1.unionc_user.model.DoctorAnswerDetailData;
 import cn.v1.unionc_user.model.DoctorEvaluateData;
 import cn.v1.unionc_user.model.DoctorInfoData;
@@ -119,13 +120,14 @@ public class UnionAPIPackage {
      *
      * @return
      */
-    public static Observable<DoctorInfoData> getDoctorInfo(String token, String doctId, String longitude, String latitude) {
+    public static Observable<DoctorInfoData> getDoctorInfo(String token, String doctId, String longitude, String latitude, String source) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", token);
         params.put("doctId", doctId);
         params.put("longitude", longitude);
         params.put("latitude", latitude);
         params.put("pageNo", "1");
+        params.put("source", source);
         return ConnectHttp.getUnionAPI().getDoctorInfo(dataProcess(params));
     }
 
@@ -140,7 +142,6 @@ public class UnionAPIPackage {
         params.put("identifier", identifier);
         return ConnectHttp.getUnionAPI().doctorInfoByParam(dataProcess(params));
     }
-
 
 
     /**
@@ -220,7 +221,6 @@ public class UnionAPIPackage {
         params.put("token", token);
         return ConnectHttp.getUnionAPI().isCertification(dataProcess(params));
     }
-
 
 
     /**
@@ -337,5 +337,37 @@ public class UnionAPIPackage {
         params.put("doctId", doctId);
         params.put("content", content);
         return ConnectHttp.getUnionAPI().saveDoctorEvaluate(dataProcess(params));
+    }
+
+    /**
+     * 医院活动
+     *
+     * @param clinicId
+     * @param token
+     * @return
+     */
+    public static Observable<ClinicActivityData> clinicActivities(String clinicId,
+                                                                  String token
+    ) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("clinicId", clinicId);
+        params.put("token", token);
+        return ConnectHttp.getUnionAPI().clinicActivities(dataProcess(params));
+    }
+
+    /**
+     * 签约医院活动
+     *
+     * @param activityIds
+     * @param token
+     * @return
+     */
+    public static Observable<BaseData> signActivities(String activityIds,
+                                                        String token
+    ) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("activityIds", activityIds);
+        params.put("token", token);
+        return ConnectHttp.getUnionAPI().signActivities(dataProcess(params));
     }
 }
