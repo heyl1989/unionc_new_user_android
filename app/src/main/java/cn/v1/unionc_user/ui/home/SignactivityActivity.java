@@ -110,7 +110,7 @@ public class SignactivityActivity extends BaseActivity {
             }
         }
         if(TextUtils.isEmpty(activityIds)){
-            showTost("请选择要签约的活动");
+            showTost("请选择要签到的活动");
             return;
         }
         activityIds = activityIds.substring(0, activityIds.length() - 1);
@@ -120,6 +120,7 @@ public class SignactivityActivity extends BaseActivity {
             public void onResponse(BaseData data) {
                 closeDialog();
                 if (TextUtils.equals("4000", data.getCode())) {
+                    showTost("签到成功");
                     finish();
                 } else {
                     showTost(data.getMessage() + "");
